@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Credit Risk Engine</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%233b63c9'/%3E%3Cpath d='M8 21l5-6 4 3 7-9' stroke='white' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/theme.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ===== Auth ===== -->
+  <section id="auth-view" class="auth-wrap" hidden>
+    <div class="card auth-card">
+      <div class="auth-top">
+        <div class="brand"><span class="logo" aria-hidden="true"></span><h1>Credit Risk Engine</h1></div>
+        <button class="btn btn-sm" type="button" data-theme-toggle aria-pressed="false">Theme</button>
+      </div>
+      <p class="muted">Explainable default-risk scoring. Sign in to continue.</p>
+      <div class="seg" role="tablist" aria-label="Authentication mode">
+        <button type="button" role="tab" id="tab-login" aria-selected="true" class="seg-btn is-on">Sign in</button>
+        <button type="button" role="tab" id="tab-register" aria-selected="false" class="seg-btn">Create account</button>
+      </div>
+      <form id="auth-form" novalidate>
+        <label class="field"><span>Username</span>
+          <input id="auth-user" name="username" autocomplete="username" required minlength="3" maxlength="32" spellcheck="false" autocapitalize="none">
+        </label>
+        <label class="field"><span>Password</span>
+          <input id="auth-pass" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="72">
+        </label>
+        <p id="auth-hint" class="hint" hidden>8+ characters, with letters and digits.</p>
+        <p id="auth-error" class="error" role="alert" aria-live="assertive"></p>
+        <button id="auth-submit" class="btn btn-primary" type="submit">Sign in</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== App ===== -->
+  <div id="app-view" hidden>
+    <header class="topbar">
+      <div class="brand"><span class="logo" aria-hidden="true"></span><h1>Credit Risk Engine</h1></div>
+      <div class="topbar-right">
+        <span id="model-chip" class="chip" title="Model version"></span>
+        <span id="user-chip" class="chip"></span>
+        <button class="btn btn-sm" type="button" data-theme-toggle aria-pressed="false">Theme</button>
+        <button id="logout" class="btn btn-sm" type="button">Sign out</button>
+      </div>
+    </header>
+
+    <main id="main" class="layout">
+      <form id="score-form" class="col" novalidate>
+        <section class="card" aria-labelledby="h-app">
+          <h2 id="h-app">Applicant</h2>
+          <label class="field">
+            <span>Load a hold-out test case <em class="muted">(real past loan, not used to train the model)</em></span>
+            <select id="sample-select"><option value="">Custom applicant (enter details below)</option></select>
+          </label>
+          <p class="hint">Loading a case only fills in the form. Press <strong>Score applicant</strong> to run the model.</p>
+        </section>
+
+        <div id="form-groups" class="col"></div>
+
+        <section class="card">
+          <p id="form-error" class="error" role="alert" aria-live="assertive"></p>
+          <div class="actions">
+            <button id="score-btn" class="btn btn-primary" type="submit">Score applicant</button>
+            <button id="reset-btn" class="btn" type="button">Reset</button>
+          </div>
+        </section>
+      </form>
+
+      <div class="col">
+        <section class="card" aria-labelledby="h-res" aria-live="polite">
+          <h2 id="h-res">Assessment</h2>
+          <div id="empty" class="empty">Fill in an applicant and press <strong>Score applicant</strong>.</div>
+          <div id="result" hidden>
+            <div class="hero">
+              <div class="gauge-wrap">
+                <svg id="gauge" viewBox="0 0 200 120" role="img" aria-label="Probability of default gauge"></svg>
+                <div class="gauge-text"><span id="pd-val">–</span><small>probability of default</small></div>
+              </div>
+              <div class="hero-side">
+                <div class="stat"><small>Score</small><strong id="score-val">–</strong><small class="muted">300 – 850</small></div>
+                <div id="decision" class="badge">–</div>
+                <div id="actual" class="actual" hidden></div>
+              </div>
+            </div>
+            <p class="small muted" id="req-id"></p>
+          </div>
+        </section>
+
+        <section id="why-card" class="card" aria-labelledby="h-why" hidden>
+          <h2 id="h-why">Why this score <span class="muted">(SHAP explanation)</span></h2>
+          <p class="muted small" id="why-sub"></p>
+          <div class="axis" aria-hidden="true"><span>← lowers risk</span><span>raises risk →</span></div>
+          <ul id="factors" class="factors"></ul>
+          <button id="toggle-factors" class="btn btn-sm" type="button" hidden>Show all factors</button>
+        </section>
+
+        <section class="card" aria-labelledby="h-model">
+          <h2 id="h-model">Model card</h2>
+          <dl id="model-card" class="kv"></dl>
+          <h3>Strongest predictors <span class="muted">(information value)</span></h3>
+          <ul id="iv-list" class="iv"></ul>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js" defer></script>
+</body>
+</html>

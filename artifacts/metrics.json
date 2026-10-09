@@ -1,0 +1,51 @@
+{
+  "model_version": "20261009134229",
+  "trained_at": "2026-10-09T13:42:29.711926+00:00",
+  "dataset": "German Credit (OpenML credit-g v1)",
+  "n_train": 800,
+  "n_test": 200,
+  "base_default_rate": 0.3,
+  "test_auc": 0.7975,
+  "test_gini": 0.595,
+  "test_ks": 0.5,
+  "cv_auc_mean": 0.7799,
+  "cv_auc_std": 0.0475,
+  "excluded_features": [
+    "personal_status"
+  ],
+  "top_iv": [
+    {
+      "feature": "checking_status",
+      "iv": 0.6093
+    },
+    {
+      "feature": "credit_history",
+      "iv": 0.2624
+    },
+    {
+      "feature": "savings_status",
+      "iv": 0.2141
+    },
+    {
+      "feature": "duration",
+      "iv": 0.2132
+    },
+    {
+      "feature": "purpose",
+      "iv": 0.1499
+    },
+    {
+      "feature": "property_magnitude",
+      "iv": 0.1452
+    },
+    {
+      "feature": "employment",
+      "iv": 0.1242
+    },
+    {
+      "feature": "other_payment_plans",
+      "iv": 0.091
+    }
+  ],
+  "data_sha256": "c92e72dc442286c8"
+}
