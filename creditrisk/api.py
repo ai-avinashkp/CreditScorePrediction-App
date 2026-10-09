@@ -119,7 +119,9 @@ def create_app(settings: Settings | None = None, bcrypt_rounds: int = 12) -> Fas
 
     @app.get("/api/schema")
     def schema(_: str = Depends(current_user)):
-        return {"features": predictor.features, "schema": predictor.schema}
+        # Model/API/audit amounts stay in DM; the UI converts for display using this rate.
+        return {"features": predictor.features, "schema": predictor.schema,
+                "currency": {"code": "INR", "symbol": "₹", "per_dm": settings.inr_per_dm}}
 
     @app.get("/api/model")
     def model_info(_: str = Depends(current_user)):
@@ -130,8 +132,9 @@ def create_app(settings: Settings | None = None, bcrypt_rounds: int = 12) -> Fas
     def list_samples(_: str = Depends(current_user)):
         return {"samples": [
             {"sample_id": int(r["sample_id"]), "actual_default": int(r["actual_default"]),
-             "label": f"#{int(r['sample_id'])} · {r['purpose']} · {int(r['credit_amount'])} · "
-                      f"{int(r['duration'])}m · age {int(r['age'])}"}
+             "purpose": str(r["purpose"]), "credit_amount": int(r["credit_amount"]),  # DM; UI converts
+             "duration": int(r["duration"]), "age": int(r["age"]),
+             "label": f"#{int(r['sample_id'])} · {r['purpose']} · {int(r['duration'])}m · age {int(r['age'])}"}
             for _, r in samples.iterrows()
         ]}
 

@@ -4,7 +4,7 @@
 const LABELS = {
   checking_status: "Checking account", savings_status: "Savings", credit_history: "Credit history",
   other_payment_plans: "Other payment plans", existing_credits: "Existing credits at bank",
-  purpose: "Loan purpose", credit_amount: "Credit amount (DM)", duration: "Duration (months)",
+  purpose: "Loan purpose", credit_amount: "Credit amount (₹)", duration: "Duration (months)",
   installment_commitment: "Installment rate level", age: "Age (years)", employment: "Employed for",
   job: "Job type", housing: "Housing", residence_since: "Years at residence", num_dependents: "Dependents",
   property_magnitude: "Property", own_telephone: "Telephone", foreign_worker: "Foreign worker",
@@ -19,10 +19,11 @@ const GROUPS = [
 // Staff-friendly wording for the dataset's coded values, in a logical order (best/most-secure first where it applies).
 // Keys are the raw values the model/API use; they are never sent in the display form.
 const OPTIONS = {
-  checking_status: [["<0", "Overdrawn (balance below 0 DM)"], ["0<=X<200", "Balance 0 to under 200 DM"],
-                    [">=200", "Balance 200 DM or more"], ["no checking", "No checking account"]],
-  savings_status: [["<100", "Under 100 DM"], ["100<=X<500", "100 to under 500 DM"], ["500<=X<1000", "500 to under 1,000 DM"],
-                   [">=1000", "1,000 DM or more"], ["no known savings", "No savings account / unknown"]],
+  // {n} tokens are DM thresholds from the dataset, rendered in INR at lookup time (see money()).
+  checking_status: [["<0", "Overdrawn (balance below ₹0)"], ["0<=X<200", "Balance ₹0 to under {200}"],
+                    [">=200", "Balance {200} or more"], ["no checking", "No checking account"]],
+  savings_status: [["<100", "Under {100}"], ["100<=X<500", "{100} to under {500}"], ["500<=X<1000", "{500} to under {1000}"],
+                   [">=1000", "{1000} or more"], ["no known savings", "No savings account / unknown"]],
   credit_history: [["no credits/all paid", "No credit taken / all repaid on time"], ["all paid", "All credits at this bank repaid on time"],
                    ["existing paid", "Existing credits repaid on time so far"], ["delayed previously", "Past delays in repayment"],
                    ["critical/other existing credit", "Critical account / credit elsewhere"]],
@@ -46,11 +47,15 @@ const HINTS = {
   residence_since: "Scale 1 – 4: 1 = under a year … 4 = four years or more",
   existing_credits: "Number of credits already held at this bank",
 };
-const optLabel = (feat, raw) => (OPTIONS[feat]?.find(([v]) => v === raw) || [, raw])[1];
+// Model, API and audit log all work in DM; INR is display/entry only. Rate comes from /api/schema.
+const money = (dm) => `${state.currency.symbol}${Math.round(dm * state.currency.per_dm).toLocaleString("en-IN")}`;
+const toDm = (inr) => inr / state.currency.per_dm;
+const optLabel = (feat, raw) =>
+  ((OPTIONS[feat]?.find(([v]) => v === raw) || [, raw])[1]).replace(/\{(\d+)\}/g, (_, n) => money(Number(n)));
 const TOP_N = 7;
 
 const $ = (id) => document.getElementById(id);
-const state = { schema: null, features: [], sampleId: null, factors: [], showAll: false, mode: "login" };
+const state = { currency: { symbol: "₹", per_dm: 90 }, schema: null, features: [], sampleId: null, factors: [], showAll: false, mode: "login" };
 
 // ---------- http ----------
 async function api(path, { method = "GET", body } = {}) {
@@ -121,6 +126,10 @@ function buildForm() {
         input = document.createElement("input");
         input.type = "number"; input.inputMode = "numeric"; input.min = 0; input.step = 1; input.value = spec.median;
         input.placeholder = `${spec.min} – ${spec.max}`;
+        if (name === "credit_amount") {  // entered in INR, sent to the model in DM (see readForm)
+          input.value = Math.round(spec.median * state.currency.per_dm); input.step = 1000;
+          input.placeholder = `${money(spec.min)} – ${money(spec.max)}`;
+        }
         // Scrolling over a focused number field would change its value; drop focus so the page scrolls instead.
         input.addEventListener("wheel", () => { if (document.activeElement === input) input.blur(); }, { passive: true });
       } else {
@@ -133,8 +142,11 @@ function buildForm() {
       input.id = `f-${name}`; input.name = name; input.required = true;
       input.addEventListener("input", () => { clearSample(); input.removeAttribute("aria-invalid"); markStale(); });
       label.append(input);
-      if (HINTS[name]) {
-        const h = document.createElement("small"); h.className = "muted"; h.textContent = HINTS[name];
+      const hint = name === "credit_amount"
+        ? `Model was trained on 1990s German data (DM). Amounts are scaled at ${state.currency.symbol}${state.currency.per_dm} = 1 DM, a purchasing-power estimate.`
+        : HINTS[name];
+      if (hint) {
+        const h = document.createElement("small"); h.className = "muted"; h.textContent = hint;
         input.setAttribute("aria-describedby", `h-${name}`); h.id = `h-${name}`; label.append(h);
       }
       grid.append(label);
@@ -146,12 +158,17 @@ function readForm() {
   const out = {};
   for (const f of state.features) {
     const el = $(`f-${f}`);
-    out[f] = state.schema[f].type === "numeric" ? (el.value === "" ? null : Number(el.value)) : el.value;
+    let v = state.schema[f].type === "numeric" ? (el.value === "" ? null : Number(el.value)) : el.value;
+    if (f === "credit_amount" && v !== null) v = toDm(v);  // model works in DM
+    out[f] = v;
   }
   return out;
 }
 function fillForm(values) {
-  for (const [k, v] of Object.entries(values)) { const el = $(`f-${k}`); if (el) el.value = v; }
+  for (const [k, v] of Object.entries(values)) {
+    const el = $(`f-${k}`);
+    if (el) el.value = k === "credit_amount" ? Math.round(v * state.currency.per_dm) : v;
+  }
 }
 function clearSample() { if (state.sampleId !== null) { state.sampleId = null; $("sample-select").value = ""; } }
 // An old result must never sit next to different inputs: hide it until the user scores again.
@@ -163,7 +180,8 @@ function markStale() {
 function resetForm() {
   for (const f of state.features) {
     const el = $(`f-${f}`), s = state.schema[f];
-    if (s.type === "numeric") el.value = s.median; else el.selectedIndex = 0;
+    if (f === "credit_amount") el.value = Math.round(s.median * state.currency.per_dm);
+    else if (s.type === "numeric") el.value = s.median; else el.selectedIndex = 0;
   }
   clearSample(); $("form-error").textContent = "";
   markStale();
@@ -251,7 +269,7 @@ function renderResult(r) {
 }
 
 function fmtValue(name, v) {
-  if (state.schema[name].type === "numeric") return name === "credit_amount" ? `${Number(v).toLocaleString()} DM` : String(v);
+  if (state.schema[name].type === "numeric") return name === "credit_amount" ? money(Number(v)) : String(v);
   return optLabel(name, String(v));
 }
 
@@ -273,7 +291,8 @@ function renderFactors() {
     // Numeric values are grouped into ranges by the model; categories already read clearly in the header.
     const numeric = state.schema[f.feature].type === "numeric";
     const a = document.createElement("span");
-    a.textContent = (numeric ? `Model range: ${f.bin} · ` : "") + `WoE ${f.woe.toFixed(2)}`;
+    const range = f.feature === "credit_amount" ? f.bin.replace(/[\d.]+/g, (n) => money(Number(n))) : f.bin;
+    a.textContent = (numeric ? `Model range: ${range} · ` : "") + `WoE ${f.woe.toFixed(2)}`;
     const c = document.createElement("span"); c.textContent = `${f.contribution > 0 ? "+" : ""}${f.contribution.toFixed(2)}`;
     meta.append(a, c);
     li.append(head, track, meta);
@@ -314,11 +333,13 @@ function renderModel(m) {
 async function enterApp() {
   const me = await api("/api/auth/me");
   const [schema, samples, model] = await Promise.all([api("/api/schema"), api("/api/samples"), api("/api/model")]);
-  state.schema = schema.schema; state.features = schema.features;
+  state.schema = schema.schema; state.features = schema.features; state.currency = schema.currency;
   $("user-chip").textContent = me.username;
   buildForm();
   const sel = $("sample-select"); sel.replaceChildren(new Option("Custom applicant", ""));
-  for (const s of samples.samples) sel.add(new Option(s.label, s.sample_id));
+  for (const s of samples.samples) {
+    sel.add(new Option(`#${s.sample_id} · ${optLabel("purpose", s.purpose)} · ${money(s.credit_amount)} · ${s.duration}m · age ${s.age}`, s.sample_id));
+  }
   renderModel(model);
   $("result").hidden = true; $("why-card").hidden = true; $("empty").hidden = false;
   $("empty").replaceChildren("Fill in an applicant and press ", Object.assign(document.createElement("strong"), { textContent: "Score applicant" }), ".");

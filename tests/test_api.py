@@ -57,6 +57,7 @@ def test_duplicate_registration_conflict_and_weak_password(client):
 def test_schema_and_samples(authed):
     schema = authed.get("/api/schema").json()
     assert "personal_status" not in schema["features"]
+    assert schema["currency"] == {"code": "INR", "symbol": "₹", "per_dm": 90.0}
     samples = authed.get("/api/samples").json()["samples"]
     assert len(samples) == 200 and {"sample_id", "actual_default", "label"} <= samples[0].keys()
     assert authed.get("/api/samples/999999").status_code == 404
