@@ -6,3 +6,6 @@ __pycache__/
 # runtime state: user accounts and audit trail must never be committed
 data/users.db
 data/audit/
+
+# raw Kaggle data: licence 'other' and ~60 MB, download it instead (see README)
+data/lt_vehicle_loan/

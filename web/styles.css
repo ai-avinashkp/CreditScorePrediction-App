@@ -169,5 +169,22 @@ fieldset.card { padding: 24px; }
 .iv .track { height: 10px; } .iv .track::before { display: none; }
 .iv .bar { left: 0; background: var(--accent); top: 1px; bottom: 1px; }
 .iv .num { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+.iv-wide li { grid-template-columns: minmax(120px, 230px) 1fr 50px; }
+.iv li.is-best { font-weight: 700; }
+#model-note { margin: -6px 0 14px; }
+
+/* ---- KYC flags as neumorphic checkboxes ---- */
+.flags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
+.check {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 0 16px 0 12px;
+  border-radius: 14px; box-shadow: var(--out-sm); cursor: pointer; font-size: .85rem; font-weight: 600; color: var(--muted);
+}
+.check input {
+  width: 22px; height: 22px; min-height: 0; padding: 0; margin: 0; border-radius: 7px; box-shadow: var(--in-sm);
+  display: grid; place-items: center; cursor: pointer; flex: none;
+}
+.check input::after { content: ""; width: 10px; height: 10px; border-radius: 3px; background: var(--accent); transform: scale(0); transition: transform .15s; }
+.check input:checked::after { transform: scale(1); }
+.check:has(input:checked) { color: var(--text); }
 
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }

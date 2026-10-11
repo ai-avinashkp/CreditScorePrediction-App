@@ -1,51 +1,82 @@
 {
-  "model_version": "20261009134229",
-  "trained_at": "2026-10-09T13:42:29.711926+00:00",
-  "dataset": "German Credit (OpenML credit-g v1)",
-  "n_train": 800,
-  "n_test": 200,
-  "base_default_rate": 0.3,
-  "test_auc": 0.7975,
-  "test_gini": 0.595,
-  "test_ks": 0.5,
-  "cv_auc_mean": 0.7799,
-  "cv_auc_std": 0.0475,
-  "excluded_features": [
-    "personal_status"
-  ],
+  "model_version": "20261011093610",
+  "trained_at": "2026-10-11T09:36:10.652738+00:00",
+  "dataset": "L&T Vehicle Loan Default (India, two-wheeler loans, Aug-Oct 2018)",
+  "target": "Missed first EMI on due date",
+  "validation": "Out-of-time: train on disbursals before 2018-10-01, test on Oct 2018",
+  "deployed_model": "LightGBM on WoE (deployed)",
+  "n_train": 134790,
+  "n_test": 98364,
+  "base_default_rate": 0.2039,
+  "test_default_rate": 0.2351,
+  "test_auc": 0.6495,
+  "test_gini": 0.299,
+  "test_ks": 0.2202,
+  "cv_auc_mean": 0.6627,
+  "cv_auc_std": 0.0021,
+  "n_trees": 497,
+  "baselines": {
+    "Bureau band only (rule baseline)": {
+      "auc": 0.5547,
+      "gini": 0.1094,
+      "ks": 0.0785
+    },
+    "Logistic regression scorecard (WoE)": {
+      "auc": 0.6347,
+      "gini": 0.2694,
+      "ks": 0.1943
+    },
+    "LightGBM on WoE (deployed)": {
+      "auc": 0.6495,
+      "gini": 0.299,
+      "ks": 0.2202
+    }
+  },
+  "thresholds": {
+    "approve_below": 0.1939,
+    "decline_above": 0.308
+  },
+  "excluded_features": {
+    "Current_pincode_ID": "customer pincode can act as a proxy for community or religion",
+    "Employee_code_ID": "operational: identifies the staff member, not borrower risk",
+    "supplier_id": "operational: identifies the dealer, not borrower risk",
+    "Date.of.Birth": "replaced by derived age",
+    "MobileNo_Avl_Flag": "constant in the data",
+    "UniqueID": "identifier"
+  },
   "top_iv": [
     {
-      "feature": "checking_status",
-      "iv": 0.6093
+      "feature": "branch_id",
+      "iv": 0.0838
     },
     {
-      "feature": "credit_history",
-      "iv": 0.2624
+      "feature": "bureau_band",
+      "iv": 0.0709
     },
     {
-      "feature": "savings_status",
-      "iv": 0.2141
+      "feature": "ltv",
+      "iv": 0.0707
     },
     {
-      "feature": "duration",
-      "iv": 0.2132
+      "feature": "bureau_score",
+      "iv": 0.0583
     },
     {
-      "feature": "purpose",
-      "iv": 0.1499
+      "feature": "disbursed_amount",
+      "iv": 0.0504
     },
     {
-      "feature": "property_magnitude",
-      "iv": 0.1452
+      "feature": "state_id",
+      "iv": 0.0449
     },
     {
-      "feature": "employment",
-      "iv": 0.1242
+      "feature": "sanctioned_amount",
+      "iv": 0.0285
     },
     {
-      "feature": "other_payment_plans",
-      "iv": 0.091
+      "feature": "current_balance",
+      "iv": 0.0253
     }
   ],
-  "data_sha256": "c92e72dc442286c8"
+  "data_sha256": "f515a34e7f72446b"
 }

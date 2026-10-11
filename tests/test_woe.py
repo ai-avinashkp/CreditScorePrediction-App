@@ -43,6 +43,14 @@ def test_iv_is_non_negative_and_ranked():
     assert iv["iv"].is_monotonic_decreasing
 
 
+def test_forced_categorical_ids_are_not_binned_as_numbers():
+    X, y = _data()
+    X["branch"] = np.where(X["cat"] == "c", 7, 3)  # numeric-looking ID
+    t = WoETransformer().fit(X.assign(branch=X["branch"].astype(str)), y, categorical=["branch"])
+    assert "branch" not in t.numeric_
+    assert set(t.tables_["branch"]["bin"]) == {"3", "7"}
+
+
 def test_extreme_numeric_values_fall_in_outer_bins():
     X, y = _data()
     t = WoETransformer().fit(X, y)

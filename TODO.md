@@ -30,6 +30,26 @@ Env: `envPyTorch` (miniconda). Run everything with that interpreter.
 - [x] API smoke-tested against live uvicorn (register, sample, predict, static files)
 - [ ] Visual check of the UI in a real browser (not yet done)
 
+## Phase 6 - Switch to Indian data (L&T vehicle loans)
+- [x] 6.1 Download via Kaggle CLI, profile (233k rows, 21.7% first-EMI default, Aug-Oct 2018)
+- [x] 6.2 Feature catalogue + engineering (age, months, PRI+SEC aggregation); exclude pincode/employee/dealer IDs
+- [x] 6.3 Out-of-time validation (train Aug-Sep, test Oct) + baselines (bureau band, LR scorecard)
+- [x] 6.4 Decision cut-offs from score distribution (approve safest 50%, decline riskiest 15%)
+- [x] 6.5 API + UI driven by /api/schema; native INR, DM conversion removed; KYC flags as checkboxes
+- [x] 6.6 Tests updated/added (45 passing)
+- [ ] 6.7 Visual check of the new form in a browser
+
+## Phase 7 - Model improvement (LightGBM kept)
+- [x] 7.1 Experiments selected on Sep validation (train Aug): WoE-only 0.659 -> raw 0.662 -> +ratios/branch volume 0.663
+- [x] 7.2 24-trial random search (gain within noise, kept best config)
+- [x] 7.3 Hybrid design (WoE for categoricals, raw numerics + derived ratios); Oct OOT 0.6487 -> 0.6539
+- [x] 7.4 Decision: rolled back to the WoE-only LightGBM (Oct AUC 0.6495) for traceability; hybrid code removed
+
+## Phase 8 - Refactor
+- [x] 8.1 Removed hybrid/derived-feature code, unused helpers (WoE fit_transform, lazy app shim, base_rate)
+- [x] 8.2 Runtime vs dev requirements split; dropped unused python-multipart
+- [x] 8.3 Tests updated
+
 ## Later scope (not now)
 - Dockerfile / image build and cloud deploy
 - Feast feature store + S3 data versioning

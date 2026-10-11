@@ -55,7 +55,7 @@
         <section class="card" aria-labelledby="h-app">
           <h2 id="h-app">Applicant</h2>
           <label class="field">
-            <span>Load a hold-out test case <em class="muted">(real past loan, not used to train the model)</em></span>
+            <span>Load a hold-out test case <em class="muted">(real Oct 2018 loan, after the model's training period)</em></span>
             <select id="sample-select"><option value="">Custom applicant (enter details below)</option></select>
           </label>
           <p class="hint">Loading a case only fills in the form. Press <strong>Score applicant</strong> to run the model.</p>
@@ -102,7 +102,10 @@
 
         <section class="card" aria-labelledby="h-model">
           <h2 id="h-model">Model card</h2>
+          <p id="model-note" class="small muted"></p>
           <dl id="model-card" class="kv"></dl>
+          <h3>Compared with baselines <span class="muted">(out-of-time AUC, same data split)</span></h3>
+          <ul id="baseline-list" class="iv iv-wide"></ul>
           <h3>Strongest predictors <span class="muted">(information value)</span></h3>
           <ul id="iv-list" class="iv"></ul>
         </section>

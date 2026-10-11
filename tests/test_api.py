@@ -56,10 +56,12 @@ def test_duplicate_registration_conflict_and_weak_password(client):
 
 def test_schema_and_samples(authed):
     schema = authed.get("/api/schema").json()
-    assert "personal_status" not in schema["features"]
-    assert schema["currency"] == {"code": "INR", "symbol": "₹", "per_dm": 90.0}
+    for excluded in ("Current_pincode_ID", "Employee_code_ID", "supplier_id"):
+        assert excluded not in schema["features"]
+    assert schema["schema"]["disbursed_amount"]["unit"] == "inr"
+    assert schema["schema"]["aadhar_flag"]["kind"] == "flag"
     samples = authed.get("/api/samples").json()["samples"]
-    assert len(samples) == 200 and {"sample_id", "actual_default", "label"} <= samples[0].keys()
+    assert len(samples) == 500 and {"sample_id", "actual_default", "disbursed_amount", "bureau_band"} <= samples[0].keys()
     assert authed.get("/api/samples/999999").status_code == 404
 
 
@@ -69,19 +71,31 @@ def test_predict_sample_returns_explanation_and_actual(authed, applicant):
     body = r.json()
     assert 0 <= body["probability_of_default"] <= 1
     assert 300 <= body["score"] <= 850
-    assert len(body["factors"]) == len(applicant)
+    assert {f["feature"] for f in body["factors"]} == set(applicant)
     assert body["actual_default"] in (0, 1) and body["request_id"]
 
 
 def test_predict_validation(authed, applicant):
-    bad_cat = {**applicant, "housing": "castle"}
+    assert isinstance(applicant["aadhar_flag"], bool) and isinstance(applicant["branch_id"], str)
+    bad_cat = {**applicant, "employment_type": "Astronaut"}
     assert authed.post("/api/predict", json=bad_cat).status_code == 422
     missing = {k: v for k, v in applicant.items() if k != "age"}
     assert authed.post("/api/predict", json=missing).status_code == 422
     extra = {**applicant, "is_admin": True}
     assert authed.post("/api/predict", json=extra).status_code == 422
-    neg = {**applicant, "credit_amount": -5}
+    neg = {**applicant, "disbursed_amount": -5}
     assert authed.post("/api/predict", json=neg).status_code == 422
+    # bureau balances can legitimately be negative (overpaid), so that field accepts them
+    overpaid = {**applicant, "current_balance": -1000}
+    assert authed.post("/api/predict", json=overpaid).status_code == 200
+
+
+def test_model_info_reports_baselines_and_thresholds(authed):
+    m = authed.get("/api/model").json()
+    deployed = m["baselines"][m["deployed_model"]]["auc"]
+    assert deployed == m["test_auc"]
+    assert all(deployed >= b["auc"] for b in m["baselines"].values())
+    assert 0 < m["thresholds"]["approve_below"] < m["thresholds"]["decline_above"] < 1
 
 
 def test_prediction_is_audited(authed, applicant, settings):

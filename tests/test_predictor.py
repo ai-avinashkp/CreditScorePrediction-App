@@ -45,11 +45,29 @@ def test_factors_sorted_by_magnitude_and_excluded_feature_absent(predictor, samp
     res = predictor.predict(_rec(predictor, samples.iloc[3]))
     mags = [abs(f["contribution"]) for f in res["factors"]]
     assert mags == sorted(mags, reverse=True)
-    assert "personal_status" not in {f["feature"] for f in res["factors"]}
+    assert "Current_pincode_ID" not in {f["feature"] for f in res["factors"]}
 
 
 def test_holdout_discrimination_is_better_than_chance(predictor, samples):
     from sklearn.metrics import roc_auc_score
 
     pds = [predictor.predict(_rec(predictor, r))["probability_of_default"] for _, r in samples.iterrows()]
-    assert roc_auc_score(samples["actual_default"], pds) > 0.7
+    # 500 out-of-time loans; full OOT AUC is ~0.65, so allow for sampling noise.
+    assert roc_auc_score(samples["actual_default"], pds) > 0.58
+
+
+def test_model_is_warm_after_construction(predictor):
+    import time
+
+    # The constructor runs a warm-up prediction, so a fresh applicant scores in milliseconds
+    # (cold, LightGBM's first predict takes ~2 s). Generous bound to stay robust on slow CI.
+    rec = {**predictor.default_record(), "age": 41, "ltv": 70.0}
+    t = time.perf_counter()
+    predictor.predict(rec)
+    assert time.perf_counter() - t < 0.5
+
+
+def test_decision_bands_follow_thresholds(predictor):
+    assert predictor.decision(predictor.approve_below - 1e-6) == "APPROVE"
+    assert predictor.decision((predictor.approve_below + predictor.decline_above) / 2) == "REVIEW"
+    assert predictor.decision(predictor.decline_above + 1e-6) == "DECLINE"

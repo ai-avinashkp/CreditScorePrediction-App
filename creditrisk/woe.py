@@ -19,11 +19,14 @@ class WoETransformer:
         self.columns_: list[str] = []
 
     # ---- fitting -----------------------------------------------------------
-    def fit(self, X: pd.DataFrame, y: pd.Series) -> "WoETransformer":
+    def fit(self, X: pd.DataFrame, y: pd.Series, categorical: list[str] | None = None) -> "WoETransformer":
+        """`categorical` forces columns to be treated as categories (e.g. numeric-looking IDs);
+        otherwise non-numeric dtypes are categorical."""
         y = pd.Series(np.asarray(y), index=X.index)
         self.columns_ = list(X.columns)
+        forced = set(categorical or [])
         for col in self.columns_:
-            if pd.api.types.is_numeric_dtype(X[col]):
+            if col not in forced and pd.api.types.is_numeric_dtype(X[col]):
                 edges = self._numeric_edges(X[col])
                 self.numeric_[col] = edges
                 bins = self._assign_numeric(X[col], edges)
@@ -94,9 +97,6 @@ class WoETransformer:
             mapping = self.tables_[col].set_index("bin")["woe"]
             out[col] = bins[col].map(mapping).fillna(0.0).astype(float)  # unseen -> neutral
         return pd.DataFrame(out, index=X.index)
-
-    def fit_transform(self, X: pd.DataFrame, y: pd.Series) -> pd.DataFrame:
-        return self.fit(X, y).transform(X)
 
     def iv_summary(self) -> pd.DataFrame:
         rows = [(c, float(t["iv"].sum())) for c, t in self.tables_.items()]

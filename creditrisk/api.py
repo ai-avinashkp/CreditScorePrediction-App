@@ -25,13 +25,38 @@ class Credentials(BaseModel):
 def _applicant_model(schema: dict[str, Any]) -> type[BaseModel]:
     fields: dict[str, Any] = {}
     for name, spec in schema.items():
-        if spec["type"] == "numeric":
-            # Allow some headroom beyond the training range; the model clamps via bins.
-            fields[name] = (float, Field(ge=0, le=max(spec["max"] * 10, 120)))
+        if spec["kind"] == "numeric":
+            # Headroom beyond the training range (the model clamps via its outer bins);
+            # negatives only where the data has them (e.g. overpaid bureau balances).
+            lo = spec["min"] * 10 if spec["min"] < 0 else 0
+            fields[name] = (float, Field(ge=lo, le=max(spec["max"] * 10, 120)))
+        elif spec["kind"] == "flag":
+            fields[name] = (bool, ...)
         else:
             fields[name] = (Literal[tuple(spec["options"])], ...)  # type: ignore[valid-type]
     fields["sample_id"] = (Optional[int], Field(default=None, ge=1))
     return create_model("Applicant", __config__=ConfigDict(extra="forbid"), **fields)
+
+
+def _load_samples(path, schema: dict[str, Any]) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    cats = [n for n, s in schema.items() if s["kind"] != "numeric"]
+    return pd.read_csv(path, dtype={c: str for c in cats})
+
+
+def _sample_applicant(row: pd.Series, schema: dict[str, Any]) -> dict[str, Any]:
+    """CSV row -> API-shaped applicant (flags as bools, numbers as plain Python numbers)."""
+    out = {}
+    for name, spec in schema.items():
+        v = row[name]
+        if spec["kind"] == "flag":
+            out[name] = str(v) == "1"
+        elif spec["kind"] == "numeric":
+            out[name] = v.item() if hasattr(v, "item") else v
+        else:
+            out[name] = str(v)
+    return out
 
 
 def create_app(settings: Settings | None = None, bcrypt_rounds: int = 12) -> FastAPI:
@@ -41,7 +66,7 @@ def create_app(settings: Settings | None = None, bcrypt_rounds: int = 12) -> Fas
     audit = AuditLog(settings.audit_log)
     Applicant = _applicant_model(predictor.schema)
 
-    samples = pd.read_csv(settings.samples_path) if settings.samples_path.exists() else pd.DataFrame()
+    samples = _load_samples(settings.samples_path, predictor.schema)
     metrics = json.loads(settings.metrics_path.read_text()) if settings.metrics_path.exists() else {}
 
     app = FastAPI(title="Credit Risk Scoring Engine", docs_url="/api/docs", openapi_url="/api/openapi.json")
@@ -119,34 +144,33 @@ def create_app(settings: Settings | None = None, bcrypt_rounds: int = 12) -> Fas
 
     @app.get("/api/schema")
     def schema(_: str = Depends(current_user)):
-        # Model/API/audit amounts stay in DM; the UI converts for display using this rate.
-        return {"features": predictor.features, "schema": predictor.schema,
-                "currency": {"code": "INR", "symbol": "₹", "per_dm": settings.inr_per_dm}}
+        return {"features": predictor.features, "schema": predictor.schema}
 
     @app.get("/api/model")
     def model_info(_: str = Depends(current_user)):
-        return {**metrics, "thresholds": {"approve_below": settings.approve_below,
-                                          "decline_above": settings.decline_above}}
+        return {**metrics, "thresholds": {"approve_below": predictor.approve_below,
+                                          "decline_above": predictor.decline_above}}
 
     @app.get("/api/samples")
     def list_samples(_: str = Depends(current_user)):
         return {"samples": [
             {"sample_id": int(r["sample_id"]), "actual_default": int(r["actual_default"]),
-             "purpose": str(r["purpose"]), "credit_amount": int(r["credit_amount"]),  # DM; UI converts
-             "duration": int(r["duration"]), "age": int(r["age"]),
-             "label": f"#{int(r['sample_id'])} · {r['purpose']} · {int(r['duration'])}m · age {int(r['age'])}"}
+             "disbursed_amount": int(r["disbursed_amount"]), "ltv": float(r["ltv"]),
+             "age": int(r["age"]), "bureau_band": str(r["bureau_band"])}
             for _, r in samples.iterrows()
         ]}
 
+    def find_sample(sample_id: int) -> pd.Series | None:
+        row = samples[samples["sample_id"] == sample_id] if not samples.empty else samples
+        return None if row.empty else row.iloc[0]
+
     @app.get("/api/samples/{sample_id}")
     def get_sample(sample_id: int, _: str = Depends(current_user)):
-        row = samples[samples["sample_id"] == sample_id]
-        if row.empty:
+        r = find_sample(sample_id)
+        if r is None:
             raise HTTPException(404, "Sample not found")
-        rec = row.iloc[0].to_dict()
-        return {"sample_id": sample_id, "actual_default": int(rec.pop("actual_default")),
-                "applicant": {k: (v.item() if hasattr(v, "item") else v)
-                              for k, v in rec.items() if k in predictor.features}}
+        return {"sample_id": sample_id, "actual_default": int(r["actual_default"]),
+                "applicant": _sample_applicant(r, predictor.schema)}
 
     @app.post("/api/predict")
     def predict(applicant: Applicant, user: str = Depends(current_user)):  # type: ignore[valid-type]
@@ -154,10 +178,8 @@ def create_app(settings: Settings | None = None, bcrypt_rounds: int = 12) -> Fas
         sample_id = data.pop("sample_id", None)
         result = predictor.predict(data)
         result["request_id"] = audit.record(user=user, inputs=data, result=result, sample_id=sample_id)
-        if sample_id is not None and not samples.empty:
-            row = samples[samples["sample_id"] == sample_id]
-            if not row.empty:
-                result["actual_default"] = int(row.iloc[0]["actual_default"])
+        if sample_id is not None and (r := find_sample(sample_id)) is not None:
+            result["actual_default"] = int(r["actual_default"])
         return result
 
     # ---- UI ------------------------------------------------------------------
@@ -167,15 +189,3 @@ def create_app(settings: Settings | None = None, bcrypt_rounds: int = 12) -> Fas
 
     app.mount("/static", StaticFiles(directory=settings.web_dir), name="static")
     return app
-
-
-def _default_app() -> FastAPI:
-    return create_app()
-
-
-def __getattr__(name: str):  # lazy `app` so importing the module doesn't need a trained model
-    if name == "app":
-        global app
-        app = _default_app()
-        return app
-    raise AttributeError(name)

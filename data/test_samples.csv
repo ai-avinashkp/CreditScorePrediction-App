@@ -1,201 +1,501 @@
-sample_id,checking_status,duration,credit_history,purpose,credit_amount,savings_status,employment,installment_commitment,other_parties,residence_since,property_magnitude,age,other_payment_plans,housing,existing_credits,job,num_dependents,own_telephone,foreign_worker,actual_default
-1,0<=X<200,18,existing paid,business,1913,>=1000,<1,3,none,3,real estate,36,bank,own,1,skilled,1,yes,yes,0
-2,0<=X<200,12,critical/other existing credit,used car,1860,<100,unemployed,4,none,2,car,34,none,own,2,high qualif/self emp/mgmt,1,yes,yes,0
-3,<0,24,delayed previously,radio/tv,1024,<100,<1,4,none,4,real estate,48,stores,own,1,skilled,1,none,yes,1
-4,<0,18,no credits/all paid,business,3104,<100,4<=X<7,3,none,1,life insurance,31,bank,own,1,skilled,1,yes,yes,0
-5,0<=X<200,27,critical/other existing credit,radio/tv,2520,500<=X<1000,1<=X<4,4,none,2,life insurance,23,none,own,2,unskilled resident,1,none,yes,1
-6,0<=X<200,13,critical/other existing credit,radio/tv,882,<100,<1,4,guarantor,4,real estate,23,none,own,2,skilled,1,none,yes,0
-7,0<=X<200,18,critical/other existing credit,furniture/equipment,3612,<100,>=7,3,none,4,life insurance,37,none,own,1,skilled,1,yes,yes,0
-8,<0,6,existing paid,used car,1352,500<=X<1000,unemployed,1,none,2,life insurance,23,none,rent,1,unemp/unskilled non res,1,yes,yes,0
-9,0<=X<200,18,existing paid,new car,6260,<100,4<=X<7,3,none,3,real estate,28,none,rent,1,unskilled resident,1,none,yes,0
-10,0<=X<200,11,critical/other existing credit,new car,1322,>=1000,1<=X<4,4,none,4,car,40,none,own,2,skilled,1,none,yes,0
-11,no checking,36,existing paid,radio/tv,2299,500<=X<1000,>=7,4,none,4,car,39,none,own,1,skilled,1,none,yes,0
-12,<0,12,critical/other existing credit,new car,4843,<100,>=7,3,co applicant,4,life insurance,43,none,rent,2,skilled,1,yes,yes,1
-13,no checking,4,critical/other existing credit,radio/tv,1544,<100,4<=X<7,2,none,1,real estate,42,none,own,3,unskilled resident,2,none,yes,0
-14,no checking,27,existing paid,new car,2570,<100,1<=X<4,3,none,3,real estate,21,none,rent,1,skilled,1,none,yes,1
-15,<0,18,critical/other existing credit,furniture/equipment,2124,<100,1<=X<4,4,none,4,real estate,24,none,rent,2,skilled,1,none,yes,1
-16,no checking,5,existing paid,business,3448,<100,4<=X<7,1,none,4,real estate,74,none,own,1,unskilled resident,1,none,yes,0
-17,0<=X<200,16,critical/other existing credit,new car,1175,<100,unemployed,2,none,3,car,68,none,for free,3,unemp/unskilled non res,1,yes,yes,0
-18,no checking,11,critical/other existing credit,radio/tv,1154,100<=X<500,unemployed,4,none,4,real estate,57,none,own,3,unskilled resident,1,none,yes,0
-19,no checking,30,critical/other existing credit,radio/tv,5954,<100,4<=X<7,3,co applicant,2,car,38,none,own,1,skilled,1,none,yes,0
-20,no checking,12,existing paid,radio/tv,2279,no known savings,1<=X<4,4,none,4,no known property,37,none,for free,1,skilled,1,yes,yes,0
-21,no checking,24,existing paid,new car,2255,no known savings,<1,4,none,1,life insurance,54,none,own,1,skilled,1,none,yes,0
-22,no checking,36,existing paid,radio/tv,3595,<100,>=7,4,none,2,car,28,none,own,1,skilled,1,none,yes,0
-23,no checking,12,critical/other existing credit,business,2292,<100,unemployed,4,none,2,car,42,stores,own,2,high qualif/self emp/mgmt,1,yes,yes,1
-24,<0,24,existing paid,furniture/equipment,3234,<100,<1,4,none,4,real estate,23,none,rent,1,unskilled resident,1,yes,yes,1
-25,0<=X<200,18,critical/other existing credit,radio/tv,1795,<100,>=7,3,guarantor,4,real estate,48,bank,rent,2,unskilled resident,1,yes,yes,0
-26,0<=X<200,18,existing paid,repairs,3872,<100,unemployed,2,none,4,car,67,none,own,1,skilled,1,yes,yes,0
-27,no checking,6,critical/other existing credit,radio/tv,1898,no known savings,1<=X<4,1,none,2,real estate,34,none,own,2,unskilled resident,2,none,yes,0
-28,>=200,6,delayed previously,radio/tv,683,<100,<1,2,none,1,life insurance,29,bank,own,1,skilled,1,none,yes,0
-29,no checking,24,critical/other existing credit,radio/tv,5103,<100,<1,3,none,3,no known property,47,none,for free,3,skilled,1,yes,yes,0
-30,no checking,12,critical/other existing credit,business,1412,<100,1<=X<4,4,guarantor,2,real estate,29,none,own,2,high qualif/self emp/mgmt,1,yes,yes,0
-31,no checking,6,all paid,radio/tv,1750,500<=X<1000,>=7,2,none,4,life insurance,45,bank,own,1,unskilled resident,2,none,yes,0
-32,0<=X<200,6,existing paid,radio/tv,1068,<100,>=7,4,none,4,car,28,none,own,1,skilled,2,none,yes,0
-33,no checking,12,existing paid,furniture/equipment,1768,<100,1<=X<4,3,none,2,real estate,24,none,rent,1,unskilled resident,1,none,yes,0
-34,0<=X<200,48,existing paid,business,15672,<100,1<=X<4,2,none,2,car,23,none,own,1,skilled,1,yes,yes,1
-35,no checking,36,existing paid,business,5742,100<=X<500,4<=X<7,2,none,2,car,31,none,own,2,skilled,1,yes,yes,0
-36,<0,24,existing paid,radio/tv,2384,<100,>=7,4,none,4,real estate,64,bank,rent,1,unskilled resident,1,none,yes,0
-37,<0,24,existing paid,furniture/equipment,4169,<100,1<=X<4,4,none,4,life insurance,28,none,own,1,skilled,1,none,yes,0
-38,<0,48,existing paid,business,4308,<100,<1,3,none,4,life insurance,24,none,rent,1,skilled,1,none,yes,1
-39,<0,6,existing paid,radio/tv,2647,500<=X<1000,1<=X<4,2,none,3,real estate,44,none,rent,1,skilled,2,none,yes,0
-40,<0,36,existing paid,other,15857,<100,unemployed,2,co applicant,3,car,43,none,own,1,high qualif/self emp/mgmt,1,none,yes,0
-41,<0,15,existing paid,new car,3959,<100,1<=X<4,3,none,2,life insurance,29,none,own,1,skilled,1,yes,yes,1
-42,0<=X<200,48,existing paid,radio/tv,3060,<100,4<=X<7,4,none,4,real estate,28,none,own,2,skilled,1,none,yes,1
-43,0<=X<200,24,existing paid,furniture/equipment,4351,no known savings,1<=X<4,1,none,4,life insurance,48,none,own,1,unskilled resident,1,yes,yes,0
-44,no checking,60,critical/other existing credit,new car,13756,no known savings,>=7,2,none,4,no known property,63,bank,for free,1,high qualif/self emp/mgmt,1,yes,yes,0
-45,>=200,24,critical/other existing credit,business,1275,>=1000,1<=X<4,2,none,4,real estate,36,none,own,2,skilled,1,yes,yes,0
-46,no checking,12,critical/other existing credit,radio/tv,522,500<=X<1000,>=7,4,none,4,life insurance,42,none,own,2,skilled,2,yes,yes,0
-47,<0,18,existing paid,new car,1216,<100,<1,4,none,3,car,23,none,rent,1,skilled,1,yes,yes,1
-48,0<=X<200,30,no credits/all paid,business,4280,100<=X<500,1<=X<4,4,none,4,car,26,none,rent,2,unskilled resident,1,none,yes,1
-49,<0,12,existing paid,furniture/equipment,1262,no known savings,>=7,2,none,4,life insurance,49,none,own,1,unskilled resident,1,yes,yes,0
-50,0<=X<200,12,existing paid,radio/tv,1484,no known savings,1<=X<4,2,none,1,real estate,25,none,own,1,skilled,1,yes,yes,1
-51,no checking,24,existing paid,furniture/equipment,2835,500<=X<1000,>=7,3,none,4,life insurance,53,none,own,1,skilled,1,none,yes,0
-52,no checking,18,critical/other existing credit,radio/tv,2404,<100,1<=X<4,2,none,2,car,26,none,own,2,skilled,1,none,yes,0
-53,<0,24,critical/other existing credit,used car,6615,<100,unemployed,2,none,4,no known property,75,none,for free,2,high qualif/self emp/mgmt,1,yes,yes,0
-54,0<=X<200,48,existing paid,radio/tv,5951,<100,1<=X<4,2,none,2,real estate,22,none,own,1,skilled,1,none,yes,1
-55,<0,18,existing paid,furniture/equipment,1131,<100,unemployed,4,none,2,car,33,none,own,1,skilled,1,none,yes,1
-56,<0,18,existing paid,used car,7511,no known savings,>=7,1,none,4,life insurance,51,none,for free,1,skilled,2,yes,yes,1
-57,no checking,6,existing paid,retraining,1238,no known savings,unemployed,4,none,4,life insurance,36,none,own,1,high qualif/self emp/mgmt,2,yes,yes,0
-58,0<=X<200,15,critical/other existing credit,radio/tv,2728,no known savings,4<=X<7,4,guarantor,2,real estate,35,bank,own,3,skilled,1,yes,yes,0
-59,0<=X<200,18,delayed previously,furniture/equipment,4297,<100,>=7,4,none,3,no known property,40,none,own,1,high qualif/self emp/mgmt,1,yes,yes,1
-60,<0,36,existing paid,furniture/equipment,5179,<100,4<=X<7,4,none,2,life insurance,29,none,own,1,skilled,1,none,yes,1
-61,>=200,9,existing paid,radio/tv,745,<100,1<=X<4,3,none,2,real estate,28,none,own,1,unskilled resident,1,none,yes,1
-62,<0,18,all paid,new car,1442,<100,4<=X<7,4,none,4,no known property,32,none,for free,2,unskilled resident,2,none,yes,1
-63,<0,30,critical/other existing credit,used car,6187,100<=X<500,4<=X<7,1,none,4,car,24,none,rent,2,skilled,1,none,yes,0
-64,0<=X<200,24,existing paid,other,11328,<100,1<=X<4,2,co applicant,3,car,29,bank,own,2,high qualif/self emp/mgmt,1,yes,yes,1
-65,no checking,12,existing paid,new car,1386,500<=X<1000,1<=X<4,2,none,2,life insurance,26,none,own,1,skilled,1,none,yes,1
-66,>=200,12,existing paid,new car,1330,<100,<1,4,none,1,real estate,26,none,own,1,skilled,1,none,yes,0
-67,no checking,12,critical/other existing credit,radio/tv,976,no known savings,>=7,4,none,4,car,35,none,own,2,skilled,1,none,yes,0
-68,no checking,6,critical/other existing credit,radio/tv,1554,<100,4<=X<7,1,none,2,car,24,none,rent,2,skilled,1,yes,yes,0
-69,0<=X<200,48,no credits/all paid,other,18424,<100,1<=X<4,1,none,2,life insurance,32,bank,own,1,high qualif/self emp/mgmt,1,yes,no,1
-70,0<=X<200,36,existing paid,radio/tv,4795,<100,<1,4,none,1,no known property,30,none,own,1,high qualif/self emp/mgmt,1,yes,yes,0
-71,0<=X<200,6,existing paid,new car,14555,no known savings,unemployed,1,none,2,life insurance,23,none,own,1,unemp/unskilled non res,1,yes,yes,1
-72,<0,15,existing paid,furniture/equipment,1845,<100,<1,4,guarantor,1,life insurance,46,none,rent,1,skilled,1,none,yes,0
-73,no checking,24,critical/other existing credit,repairs,2058,<100,1<=X<4,4,none,2,real estate,33,none,own,2,skilled,1,yes,yes,0
-74,0<=X<200,12,existing paid,retraining,754,no known savings,>=7,4,none,4,life insurance,38,none,own,2,skilled,1,none,yes,0
-75,0<=X<200,9,existing paid,radio/tv,1670,<100,<1,4,none,2,car,22,none,own,1,skilled,1,yes,yes,1
-76,>=200,15,critical/other existing credit,used car,2360,500<=X<1000,1<=X<4,2,none,2,car,36,none,own,1,skilled,1,yes,yes,0
-77,0<=X<200,9,existing paid,new car,1549,no known savings,<1,4,none,2,real estate,35,none,own,1,unemp/unskilled non res,1,none,yes,0
-78,no checking,9,existing paid,radio/tv,1478,<100,4<=X<7,4,none,2,car,22,none,own,1,skilled,1,none,yes,1
-79,<0,24,existing paid,radio/tv,1823,<100,unemployed,4,none,2,car,30,stores,own,1,high qualif/self emp/mgmt,2,none,yes,1
-80,no checking,18,existing paid,radio/tv,2051,<100,<1,4,none,1,real estate,33,none,own,1,skilled,1,none,yes,0
-81,<0,36,existing paid,radio/tv,2302,<100,1<=X<4,4,none,4,car,31,none,rent,1,skilled,1,none,yes,1
-82,no checking,15,delayed previously,radio/tv,1478,<100,1<=X<4,4,none,3,real estate,33,bank,own,2,skilled,1,none,yes,0
-83,0<=X<200,36,delayed previously,new car,8086,100<=X<500,>=7,2,none,4,car,42,none,own,4,high qualif/self emp/mgmt,1,yes,yes,1
-84,no checking,12,delayed previously,used car,1503,<100,1<=X<4,4,none,4,real estate,41,none,rent,1,skilled,1,none,yes,0
-85,no checking,12,existing paid,furniture/equipment,763,<100,1<=X<4,4,none,1,real estate,26,none,own,1,skilled,1,yes,yes,0
-86,no checking,24,critical/other existing credit,other,6314,<100,unemployed,4,co applicant,2,no known property,27,bank,own,2,high qualif/self emp/mgmt,1,yes,yes,0
-87,0<=X<200,18,existing paid,radio/tv,1113,<100,1<=X<4,4,guarantor,4,real estate,26,none,own,1,unskilled resident,2,none,yes,0
-88,no checking,6,critical/other existing credit,new car,362,100<=X<500,1<=X<4,4,none,4,car,52,none,own,2,unskilled resident,1,none,yes,0
-89,<0,12,all paid,radio/tv,626,<100,1<=X<4,4,none,4,real estate,24,bank,own,1,unskilled resident,1,none,yes,1
-90,no checking,24,delayed previously,new car,2032,<100,>=7,4,none,4,no known property,60,none,for free,2,skilled,1,yes,yes,0
-91,0<=X<200,60,existing paid,education,6288,<100,1<=X<4,4,none,4,no known property,42,none,for free,1,skilled,1,none,yes,1
-92,<0,15,existing paid,domestic appliance,1275,no known savings,1<=X<4,4,none,2,car,24,none,rent,1,skilled,1,none,yes,1
-93,0<=X<200,6,delayed previously,furniture/equipment,1050,<100,unemployed,4,none,1,life insurance,35,stores,own,2,high qualif/self emp/mgmt,1,yes,yes,0
-94,no checking,36,delayed previously,new car,10875,<100,>=7,2,none,2,car,45,none,own,2,skilled,2,yes,yes,0
-95,0<=X<200,8,existing paid,furniture/equipment,1237,<100,1<=X<4,3,none,4,real estate,24,none,own,1,skilled,1,none,yes,1
-96,no checking,21,existing paid,furniture/equipment,2241,<100,>=7,4,none,2,real estate,50,none,own,2,skilled,1,none,yes,0
-97,<0,45,no credits/all paid,business,11816,<100,>=7,2,none,4,car,29,none,rent,2,skilled,1,none,yes,1
-98,0<=X<200,27,existing paid,business,3915,<100,1<=X<4,4,none,2,car,36,none,own,1,skilled,2,yes,yes,1
-99,0<=X<200,12,existing paid,new car,7472,no known savings,unemployed,1,none,2,real estate,24,none,rent,1,unemp/unskilled non res,1,none,yes,0
-100,>=200,18,all paid,radio/tv,1445,no known savings,4<=X<7,4,none,4,car,49,bank,own,1,unskilled resident,1,none,yes,0
-101,no checking,48,critical/other existing credit,radio/tv,3578,no known savings,>=7,4,none,1,real estate,47,none,own,1,skilled,1,yes,yes,0
-102,no checking,10,critical/other existing credit,furniture/equipment,2146,<100,<1,1,none,3,real estate,23,none,rent,2,skilled,1,none,yes,0
-103,no checking,10,existing paid,retraining,894,no known savings,4<=X<7,4,none,3,life insurance,40,none,own,1,skilled,1,yes,yes,0
-104,no checking,18,existing paid,furniture/equipment,3422,<100,>=7,4,none,4,life insurance,47,bank,own,3,skilled,2,yes,yes,0
-105,no checking,30,critical/other existing credit,used car,7596,no known savings,>=7,1,none,4,car,63,none,own,2,skilled,1,none,yes,0
-106,<0,24,existing paid,other,1755,<100,>=7,4,guarantor,4,real estate,58,none,own,1,unskilled resident,1,yes,yes,0
-107,0<=X<200,21,existing paid,furniture/equipment,3976,no known savings,4<=X<7,2,none,3,car,35,none,own,1,skilled,1,yes,yes,0
-108,0<=X<200,9,existing paid,radio/tv,2118,<100,1<=X<4,2,none,2,real estate,37,none,own,1,unskilled resident,2,none,yes,0
-109,>=200,10,existing paid,domestic appliance,1225,<100,1<=X<4,2,none,2,car,37,none,own,1,skilled,1,yes,yes,0
-110,no checking,18,critical/other existing credit,new car,2775,<100,4<=X<7,2,none,2,life insurance,31,bank,own,2,skilled,1,none,yes,1
-111,no checking,48,critical/other existing credit,new car,10127,500<=X<1000,1<=X<4,2,none,2,no known property,44,bank,for free,1,skilled,1,none,yes,1
-112,no checking,24,existing paid,business,4591,>=1000,1<=X<4,2,none,3,life insurance,54,none,own,3,high qualif/self emp/mgmt,1,yes,yes,1
-113,0<=X<200,30,no credits/all paid,business,4221,<100,1<=X<4,2,none,1,car,28,none,own,2,skilled,1,none,yes,0
-114,no checking,10,existing paid,new car,1364,<100,1<=X<4,2,none,4,car,64,none,own,1,skilled,1,yes,yes,0
-115,no checking,18,existing paid,radio/tv,1505,<100,1<=X<4,4,none,2,no known property,32,none,for free,1,high qualif/self emp/mgmt,1,yes,yes,0
-116,<0,12,no credits/all paid,repairs,1108,<100,4<=X<7,4,none,3,real estate,28,none,own,2,skilled,1,none,yes,1
-117,0<=X<200,45,existing paid,radio/tv,3031,100<=X<500,1<=X<4,4,guarantor,4,life insurance,21,none,rent,1,skilled,1,none,yes,1
-118,no checking,18,existing paid,furniture/equipment,1984,<100,1<=X<4,4,none,4,no known property,47,bank,for free,2,skilled,1,none,yes,0
-119,no checking,24,existing paid,used car,2679,<100,<1,4,none,1,no known property,29,none,own,1,high qualif/self emp/mgmt,1,yes,yes,0
-120,>=200,6,critical/other existing credit,education,1047,<100,1<=X<4,2,none,4,life insurance,50,none,own,1,unskilled resident,1,none,yes,0
-121,>=200,24,existing paid,furniture/equipment,2892,<100,>=7,3,none,4,no known property,51,none,for free,1,skilled,1,none,yes,0
-122,<0,12,critical/other existing credit,new car,3499,<100,1<=X<4,3,co applicant,2,real estate,29,none,own,2,skilled,1,none,yes,1
-123,<0,27,existing paid,radio/tv,3416,<100,1<=X<4,3,none,2,car,27,none,own,1,high qualif/self emp/mgmt,1,none,yes,0
-124,no checking,48,existing paid,radio/tv,10222,no known savings,4<=X<7,4,none,3,car,37,stores,own,1,skilled,1,yes,yes,0
-125,>=200,24,existing paid,radio/tv,5152,<100,4<=X<7,4,none,2,car,25,bank,own,1,skilled,1,none,yes,0
-126,0<=X<200,6,existing paid,radio/tv,590,<100,<1,3,none,3,real estate,26,none,own,1,unskilled resident,1,none,no,0
-127,no checking,18,critical/other existing credit,radio/tv,1800,<100,1<=X<4,4,none,2,car,24,none,own,2,skilled,1,none,yes,0
-128,0<=X<200,21,critical/other existing credit,business,3652,<100,4<=X<7,2,none,3,life insurance,27,none,own,2,skilled,1,none,yes,0
-129,0<=X<200,24,existing paid,radio/tv,3758,500<=X<1000,unemployed,1,none,4,no known property,23,none,rent,1,unemp/unskilled non res,1,none,yes,0
-130,<0,12,all paid,radio/tv,2149,<100,1<=X<4,4,none,1,no known property,29,none,for free,1,skilled,1,none,yes,1
-131,no checking,36,existing paid,used car,8133,<100,1<=X<4,1,none,2,life insurance,30,bank,own,1,skilled,1,none,yes,0
-132,0<=X<200,18,delayed previously,new car,2899,no known savings,>=7,4,none,4,car,43,none,own,1,skilled,2,none,yes,0
-133,0<=X<200,39,delayed previously,education,11760,100<=X<500,4<=X<7,2,none,3,no known property,32,none,rent,1,skilled,1,yes,yes,0
-134,<0,12,existing paid,education,1200,no known savings,1<=X<4,4,none,4,life insurance,23,bank,rent,1,skilled,1,yes,yes,0
-135,<0,24,all paid,other,1358,no known savings,>=7,4,none,3,car,40,stores,own,1,high qualif/self emp/mgmt,1,yes,yes,1
-136,<0,18,existing paid,new car,976,<100,<1,1,none,2,car,23,none,own,1,unskilled resident,1,none,yes,1
-137,no checking,24,existing paid,furniture/equipment,3062,500<=X<1000,>=7,4,none,3,no known property,32,none,rent,1,skilled,1,yes,yes,0
-138,no checking,24,critical/other existing credit,education,1597,<100,>=7,4,none,4,no known property,54,none,for free,2,skilled,2,none,yes,0
-139,<0,20,critical/other existing credit,furniture/equipment,4272,<100,>=7,1,none,4,life insurance,24,none,own,2,skilled,1,none,yes,0
-140,<0,12,existing paid,furniture/equipment,1289,<100,1<=X<4,4,guarantor,1,life insurance,21,none,own,1,unskilled resident,1,none,yes,0
-141,<0,24,existing paid,used car,2924,<100,1<=X<4,3,guarantor,4,no known property,63,bank,own,1,skilled,2,yes,yes,0
-142,no checking,36,existing paid,furniture/equipment,10974,<100,unemployed,4,none,2,car,26,none,own,2,high qualif/self emp/mgmt,1,yes,yes,1
-143,no checking,21,critical/other existing credit,used car,3275,<100,>=7,1,none,4,car,36,none,own,1,high qualif/self emp/mgmt,1,yes,yes,0
-144,<0,27,critical/other existing credit,business,2442,<100,>=7,4,none,4,car,43,stores,own,4,high qualif/self emp/mgmt,2,yes,yes,0
-145,0<=X<200,15,existing paid,repairs,2631,100<=X<500,1<=X<4,3,none,2,real estate,25,none,own,1,unskilled resident,1,none,yes,0
-146,<0,12,existing paid,new car,759,<100,4<=X<7,4,none,2,real estate,26,none,own,1,skilled,1,none,yes,1
-147,no checking,12,critical/other existing credit,new car,1255,<100,>=7,4,none,4,real estate,61,none,own,2,unskilled resident,1,none,yes,0
-148,no checking,24,existing paid,used car,3488,100<=X<500,4<=X<7,3,none,4,car,23,none,own,1,skilled,1,none,yes,0
-149,no checking,24,existing paid,used car,6313,no known savings,>=7,3,none,4,car,41,none,own,1,high qualif/self emp/mgmt,2,yes,yes,0
-150,0<=X<200,6,delayed previously,new car,1209,<100,unemployed,4,none,4,life insurance,47,none,own,1,high qualif/self emp/mgmt,1,yes,yes,1
-151,no checking,10,existing paid,new car,1546,<100,1<=X<4,3,none,2,real estate,31,none,own,1,unskilled resident,2,none,no,0
-152,no checking,12,existing paid,new car,2859,no known savings,unemployed,4,none,4,no known property,38,none,own,1,high qualif/self emp/mgmt,1,yes,yes,0
-153,0<=X<200,12,existing paid,radio/tv,625,<100,<1,4,guarantor,1,real estate,26,bank,own,1,unskilled resident,1,none,yes,0
-154,0<=X<200,12,existing paid,radio/tv,1103,<100,4<=X<7,4,guarantor,3,real estate,29,none,own,2,skilled,1,none,no,0
-155,<0,15,existing paid,new car,2511,<100,unemployed,1,none,4,car,23,none,rent,1,skilled,1,none,yes,0
-156,0<=X<200,12,existing paid,new car,6078,<100,4<=X<7,2,none,2,car,32,none,own,1,skilled,1,none,yes,0
-157,<0,30,existing paid,used car,3857,<100,1<=X<4,4,none,4,life insurance,40,none,own,1,high qualif/self emp/mgmt,1,yes,yes,0
-158,no checking,48,delayed previously,radio/tv,12749,500<=X<1000,4<=X<7,4,none,1,car,37,none,own,1,high qualif/self emp/mgmt,1,yes,yes,0
-159,no checking,12,critical/other existing credit,education,2748,<100,>=7,2,none,4,no known property,57,bank,for free,3,unskilled resident,1,none,yes,0
-160,<0,24,critical/other existing credit,new car,1199,<100,>=7,4,none,4,car,60,none,own,2,unskilled resident,1,none,yes,1
-161,<0,48,all paid,business,7685,<100,4<=X<7,2,guarantor,4,car,37,none,rent,1,skilled,1,none,yes,1
-162,no checking,30,critical/other existing credit,radio/tv,2831,<100,1<=X<4,4,none,2,car,33,none,own,1,skilled,1,yes,yes,0
-163,<0,45,existing paid,radio/tv,1845,<100,1<=X<4,4,none,4,no known property,23,none,for free,1,skilled,1,yes,yes,1
-164,no checking,15,critical/other existing credit,furniture/equipment,1520,no known savings,>=7,4,none,4,life insurance,63,none,own,1,skilled,1,none,yes,0
-165,no checking,60,existing paid,radio/tv,10144,100<=X<500,4<=X<7,2,none,4,real estate,21,none,own,1,skilled,1,yes,yes,0
-166,no checking,54,no credits/all paid,used car,9436,no known savings,1<=X<4,2,none,2,life insurance,39,none,own,1,unskilled resident,2,none,yes,0
-167,0<=X<200,13,existing paid,radio/tv,2101,<100,<1,2,guarantor,4,life insurance,23,none,own,1,unskilled resident,1,none,yes,0
-168,<0,12,no credits/all paid,radio/tv,6199,<100,1<=X<4,4,none,2,life insurance,28,none,rent,2,skilled,1,yes,yes,1
-169,<0,21,all paid,new car,1647,no known savings,1<=X<4,4,none,2,life insurance,40,none,own,2,unskilled resident,2,none,yes,1
-170,no checking,10,existing paid,new car,1287,no known savings,>=7,4,co applicant,2,life insurance,45,none,own,1,unskilled resident,1,none,no,0
-171,0<=X<200,36,existing paid,new car,12389,no known savings,1<=X<4,1,none,4,no known property,37,none,for free,1,skilled,1,yes,yes,1
-172,no checking,24,existing paid,radio/tv,3105,no known savings,<1,4,none,2,car,25,none,own,2,skilled,1,none,yes,0
-173,0<=X<200,11,existing paid,furniture/equipment,1577,>=1000,<1,4,none,1,real estate,20,none,own,1,skilled,1,none,yes,0
-174,no checking,12,critical/other existing credit,education,2096,<100,4<=X<7,2,none,3,real estate,49,none,own,1,unskilled resident,2,none,yes,0
-175,0<=X<200,7,existing paid,radio/tv,2415,<100,1<=X<4,3,guarantor,2,real estate,34,none,own,1,skilled,1,none,yes,0
-176,<0,36,existing paid,furniture/equipment,3959,<100,unemployed,4,none,3,life insurance,30,none,own,1,high qualif/self emp/mgmt,1,yes,yes,0
-177,no checking,24,critical/other existing credit,used car,5804,>=1000,1<=X<4,4,none,2,real estate,27,none,own,2,skilled,1,none,yes,0
-178,no checking,12,existing paid,radio/tv,1963,<100,4<=X<7,4,none,2,car,31,none,rent,2,high qualif/self emp/mgmt,2,yes,yes,0
-179,0<=X<200,48,delayed previously,education,6224,<100,>=7,4,none,4,no known property,50,none,for free,1,skilled,1,none,yes,1
-180,>=200,42,critical/other existing credit,used car,4796,<100,>=7,4,none,4,no known property,56,none,for free,1,skilled,1,none,yes,0
-181,no checking,12,existing paid,used car,4675,no known savings,<1,1,none,4,car,20,none,rent,1,skilled,1,none,yes,0
-182,<0,24,existing paid,radio/tv,1603,<100,>=7,4,none,4,car,55,none,own,1,skilled,1,none,yes,0
-183,>=200,15,existing paid,education,1905,<100,>=7,4,none,4,car,40,none,rent,1,high qualif/self emp/mgmt,1,yes,yes,0
-184,<0,24,existing paid,furniture/equipment,3149,<100,<1,4,none,1,no known property,22,bank,for free,1,skilled,1,none,yes,0
-185,<0,18,existing paid,radio/tv,1936,no known savings,4<=X<7,2,none,4,car,23,none,rent,2,unskilled resident,1,none,yes,0
-186,<0,6,existing paid,new car,14896,<100,>=7,1,none,4,no known property,68,bank,own,1,high qualif/self emp/mgmt,1,yes,yes,1
-187,0<=X<200,72,existing paid,radio/tv,5595,100<=X<500,1<=X<4,2,none,2,car,24,none,own,1,skilled,1,none,yes,1
-188,no checking,6,critical/other existing credit,new car,250,>=1000,1<=X<4,2,none,2,real estate,41,bank,own,2,unskilled resident,1,none,yes,0
-189,<0,9,existing paid,radio/tv,1364,<100,4<=X<7,3,none,4,real estate,59,none,own,1,skilled,1,none,yes,0
-190,no checking,21,existing paid,radio/tv,3160,no known savings,>=7,4,none,3,life insurance,41,none,own,1,skilled,1,yes,yes,0
-191,no checking,24,existing paid,radio/tv,3181,<100,<1,4,none,4,life insurance,26,none,own,1,skilled,1,yes,yes,0
-192,0<=X<200,24,existing paid,new car,1246,<100,<1,4,none,2,real estate,23,stores,own,1,unskilled resident,1,none,yes,1
-193,<0,10,critical/other existing credit,new car,2241,<100,<1,1,none,3,real estate,48,none,rent,2,unskilled resident,2,none,no,0
-194,no checking,24,existing paid,retraining,937,<100,<1,4,none,3,car,27,none,own,2,unskilled resident,1,none,yes,0
-195,no checking,12,critical/other existing credit,education,2012,no known savings,4<=X<7,4,none,2,car,61,none,own,1,skilled,1,none,yes,0
-196,<0,48,no credits/all paid,furniture/equipment,7119,<100,1<=X<4,3,none,4,no known property,53,none,for free,2,skilled,2,none,yes,1
-197,0<=X<200,18,delayed previously,business,2427,no known savings,>=7,4,none,2,life insurance,42,none,own,2,skilled,1,none,yes,0
-198,no checking,12,existing paid,radio/tv,1262,<100,1<=X<4,3,none,2,car,25,none,own,1,skilled,1,none,yes,0
-199,<0,30,existing paid,furniture/equipment,6350,no known savings,>=7,4,none,4,life insurance,31,none,own,1,skilled,1,none,yes,1
-200,no checking,21,delayed previously,furniture/equipment,1591,100<=X<500,4<=X<7,4,none,3,real estate,34,none,own,2,high qualif/self emp/mgmt,1,none,yes,0
+sample_id,disbursed_amount,asset_cost,ltv,manufacturer_id,branch_id,state_id,age,employment_type,aadhar_flag,pan_flag,voterid_flag,driving_flag,passport_flag,bureau_score,bureau_band,total_accounts,active_accounts,overdue_accounts,current_balance,sanctioned_amount,instalment_amount,new_accounts_6m,delinquent_accounts_6m,avg_account_age_months,credit_history_months,inquiries,actual_default
+1,59002,68600,89.0,86,61,6,38,Self employed,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,7,7,0,240963,261095,6348,7,0,0,0,2,1
+2,54059,70117,79.87,86,146,14,37,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,2,1
+3,48849,91551,54.61,48,18,4,40,Salaried,1,0,0,0,0,758,C-Very Low Risk,5,2,0,29109,39190,5785,2,0,10,19,0,0
+4,64882,107346,62.41,49,7,3,31,Self employed,1,0,0,0,0,774,B-Very Low Risk,1,1,0,0,38900,2075,0,0,45,45,0,0
+5,41244,63160,71.25,45,70,4,23,Salaried,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,1565,0,0,6,6,0,0
+6,34621,65919,54.61,49,9,3,29,Self employed,1,1,0,0,0,815,A-Very Low Risk,2,2,0,549,63069,0,0,0,31,37,0,0
+7,69417,106574,67.18,49,70,4,36,Self employed,1,0,0,0,0,597,I-Medium Risk,2,2,0,25618,40980,0,2,0,3,5,0,0
+8,56513,78784,73.62,86,202,18,24,Self employed,1,0,0,0,0,710,D-Very Low Risk,2,2,0,33999,50206,2478,1,0,4,8,0,1
+9,62947,80425,79.58,51,136,8,42,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+10,31784,63809,50.62,45,257,6,55,Salaried,1,0,0,0,0,749,C-Very Low Risk,3,2,0,14030,33790,0,1,0,6,13,0,0
+11,64499,84053,79.71,86,3,15,25,Salaried,1,0,0,0,0,650,G-Low Risk,8,6,0,78416,110525,4494,3,0,13,36,2,0
+12,53578,66080,83.23,86,63,10,31,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+13,69965,88800,80.52,86,2,4,30,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+14,41894,67751,63.47,86,67,6,43,Salaried,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,0,0,0,14,14,0,0
+15,16500,78892,22.82,45,255,3,40,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+16,55259,74481,76.53,86,5,9,60,Self employed,1,0,0,1,0,615,H-Medium Risk,7,3,1,1084456,2450000,0,0,0,32,121,0,0
+17,51803,71336,75.0,51,42,3,31,Self employed,1,0,0,0,0,726,D-Very Low Risk,3,1,0,15016,18168,38144,1,0,12,23,0,0
+18,51503,66283,80.71,86,34,6,41,Self employed,1,0,0,0,0,792,B-Very Low Risk,2,1,0,993340,1007380,9473,0,0,39,73,0,0
+19,55259,76594,73.11,51,136,8,30,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+20,49303,85220,59.85,120,17,17,30,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+21,52803,100500,54.23,51,152,3,29,Self employed,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,8939,14900,1490,1,0,1,1,1,0
+22,50303,62802,82.8,45,3,1,24,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+23,38482,66840,61.34,86,3,1,24,Self employed,1,1,0,1,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+24,62732,72949,89.38,86,121,9,51,Salaried,1,0,0,0,0,692,E-Low Risk,7,4,0,252821,428290,9759,1,0,20,57,0,0
+25,40310,58162,70.66,86,34,6,34,Self employed,1,0,0,0,0,836,A-Very Low Risk,1,0,0,0,0,0,0,0,19,19,0,1
+26,56259,70759,84.79,86,5,9,24,Salaried,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,30531,60000,0,1,0,0,0,0,0
+27,56013,70311,82.49,45,152,3,45,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+28,54509,63985,87.52,86,62,11,54,Salaried,1,0,0,0,0,680,F-Low Risk,4,2,0,591745,693035,166669,0,0,34,56,0,0
+29,82586,113304,74.93,51,3,15,22,Salaried,1,0,0,0,0,623,H-Medium Risk,4,2,0,11623,17951,5640,2,1,4,7,1,1
+30,55513,68894,82.01,86,48,5,46,Salaried,1,0,0,0,0,557,J-High Risk,5,4,0,116508,182700,726,0,1,51,107,0,1
+31,65669,92667,72.3,48,136,8,22,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+32,50803,97938,53.09,86,20,5,29,Salaried,1,0,0,0,0,731,D-Very Low Risk,1,1,0,38654,250000,5948,0,0,49,49,0,0
+33,57659,69656,84.7,45,67,6,40,Self employed,1,0,0,0,0,738,C-Very Low Risk,2,1,0,9300,11161,3667,1,1,3,6,2,0
+34,95490,152777,63.49,49,42,3,24,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+35,69817,98492,73.1,49,42,3,25,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+36,41394,69200,60.69,86,152,3,28,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+37,75079,116432,66.13,51,11,3,20,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+38,39210,66155,61.98,86,20,5,36,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+39,67669,99811,69.63,48,69,8,24,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+40,66532,76500,88.43,86,2,4,37,Salaried,1,0,0,0,0,14,Not Scored: Only a Guarantor,1,0,0,0,0,0,0,0,36,36,0,1
+41,54303,63343,86.83,51,3,1,36,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+42,58013,72118,81.81,45,79,18,44,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+43,37839,71418,55.17,86,65,13,31,Salaried,0,0,1,0,0,300,M-Very High Risk,5,3,2,157877,471298,30104,0,1,50,81,0,0
+44,77251,99105,79.81,86,36,13,23,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+45,68617,75600,92.99,86,2,4,33,Salaried,1,0,0,0,0,18,Not Scored: No Updates available in last 36 months,1,1,0,251,251,0,0,0,6,6,0,1
+46,51078,65808,79.02,45,19,4,43,Salaried,1,0,0,0,0,708,D-Very Low Risk,15,4,0,125715,184990,29745,2,0,11,33,2,0
+47,57259,101173,57.33,48,11,3,41,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+48,66289,94531,72.99,48,20,5,25,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+49,49349,67692,73.86,45,48,5,57,Self employed,1,0,0,0,0,300,M-Very High Risk,2,2,1,60962,40000,0,0,0,55,78,0,1
+50,71817,106754,68.38,86,2,4,22,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+51,62447,76831,83.3,86,159,7,35,Self employed,1,0,0,0,0,698,E-Low Risk,7,2,0,36648,55206,5395,0,0,13,25,0,1
+52,51303,70951,73.29,86,48,5,24,Salaried,1,0,0,0,0,573,I-Medium Risk,7,1,0,52000,52000,0,1,0,6,26,0,1
+53,45649,69649,67.19,86,153,11,29,Salaried,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+54,68578,82011,85.0,86,135,4,55,Self employed,1,0,0,0,0,417,K-High Risk,1,1,1,1245,7475,1246,0,0,16,16,0,0
+55,49400,70500,72.62,45,147,2,34,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,2,0
+56,51803,70810,74.85,45,159,7,33,Self employed,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,1200,0,0,24,24,0,1
+57,50303,70912,71.92,86,147,2,39,Self employed,1,0,0,0,0,771,B-Very Low Risk,1,1,0,4389206,4455000,0,0,0,10,10,0,0
+58,42969,60782,75.68,51,3,1,46,Self employed,1,0,0,0,0,300,M-Very High Risk,5,0,1,0,0,30014,0,0,31,81,0,1
+59,65169,83000,79.52,120,2,4,38,Self employed,1,0,0,0,0,14,Not Scored: Only a Guarantor,1,0,1,0,0,0,0,0,20,20,0,0
+60,61947,84150,74.87,49,48,5,49,Self employed,1,0,0,0,0,342,L-Very High Risk,1,1,1,35385,35000,0,0,0,37,37,0,0
+61,58959,72030,83.3,86,138,9,25,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+62,50551,59494,89.2,45,61,6,42,Self employed,1,0,0,0,0,708,D-Very Low Risk,4,3,0,18603,45519,7125,3,0,4,7,0,1
+63,52303,62802,84.39,45,3,1,32,Salaried,0,1,1,0,0,393,K-High Risk,3,1,1,93098,138000,8996,0,1,12,24,0,1
+64,47504,64500,79.0,45,85,4,31,Self employed,1,0,0,0,0,570,J-High Risk,5,3,0,157018,210869,8049,1,0,16,34,0,1
+65,51078,76083,69.0,45,2,4,48,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+66,61063,80073,81.18,86,5,9,53,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+67,42014,70958,62.01,120,68,6,27,Self employed,1,0,0,0,0,300,M-Very High Risk,13,3,1,1182626,2523622,81540,0,0,22,57,0,0
+68,39394,66334,61.81,86,61,6,50,Self employed,0,1,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+69,56259,74206,76.81,51,16,14,22,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+70,51003,72535,73.07,86,138,9,35,Salaried,1,0,0,0,0,675,F-Low Risk,6,3,0,294887,439311,42185,0,0,18,72,0,0
+71,61778,78831,80.97,86,85,4,21,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+72,59947,68150,89.51,45,136,8,25,Salaried,1,0,0,0,0,783,B-Very Low Risk,3,2,0,1902448,2005173,17694,0,0,31,35,0,0
+73,68382,79366,88.2,86,13,8,27,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+74,54913,67085,84.82,45,19,4,31,Salaried,1,0,0,0,0,738,C-Very Low Risk,3,2,0,34457,39200,5669,2,0,2,6,1,0
+75,68717,103560,68.27,51,36,13,30,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+76,55189,69653,84.71,86,5,9,35,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+77,51753,69060,76.31,86,67,6,27,Self employed,1,0,0,0,0,763,B-Very Low Risk,1,1,0,1576,9461,1648,1,0,5,5,1,0
+78,59259,70850,84.69,86,146,14,22,Salaried,1,0,0,0,0,758,C-Very Low Risk,4,4,0,97758,312420,0,1,0,16,23,0,1
+79,69169,87550,79.95,120,2,4,21,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+80,51303,71259,74.38,51,103,7,28,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+81,61167,76931,83.19,45,165,5,25,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+82,57759,69889,84.42,86,5,9,50,Salaried,0,0,1,0,0,825,A-Very Low Risk,1,0,0,0,0,2531,0,0,63,63,0,1
+83,56263,68248,84.98,45,105,6,22,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+84,60947,83609,75.35,86,1,3,24,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+85,53078,65770,82.1,45,136,8,46,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+86,47645,80860,61.84,45,7,3,50,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+87,59259,90365,66.4,86,42,3,33,Self employed,1,0,0,0,0,749,C-Very Low Risk,2,2,0,13881,79152,3568,0,0,33,41,0,0
+88,65169,79183,83.35,86,136,8,46,Salaried,1,0,0,0,0,825,A-Very Low Risk,6,0,0,0,0,0,0,0,10,12,0,0
+89,53703,73385,74.95,86,67,6,25,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+90,52903,65400,82.57,86,67,6,39,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+91,53653,66860,83.76,86,34,6,41,Salaried,1,0,0,0,0,300,M-Very High Risk,4,0,1,0,0,3052,0,0,29,59,2,0
+92,51428,74593,73.73,45,8,3,22,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+93,53303,74657,73.67,86,34,6,26,Self employed,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,1250,0,0,6,6,0,0
+94,59147,82000,73.78,51,248,4,34,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+95,61947,75019,83.98,120,136,8,30,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+96,66382,103040,66.48,51,251,13,48,Self employed,0,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+97,67603,84252,83.91,120,74,4,48,Salaried,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,28675,30000,2003,1,0,1,1,0,0
+98,49978,60533,84.91,45,85,4,43,Salaried,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,28000,28000,1500,1,0,2,2,1,1
+99,64129,85062,79.94,86,5,9,38,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+100,47749,68218,71.83,86,20,5,39,Self employed,1,0,0,0,0,16,Not Scored: No Activity seen on the customer (Inactive),1,0,0,0,0,0,0,0,21,21,0,0
+101,42544,64994,66.39,45,68,6,21,Salaried,1,0,0,0,0,738,C-Very Low Risk,2,1,0,5562,12997,3682,1,0,5,7,1,1
+102,55859,65931,86.91,86,15,11,53,Salaried,1,0,0,0,0,738,C-Very Low Risk,4,1,0,4680,12490,0,1,0,8,10,0,0
+103,54078,77652,70.83,120,69,8,48,Self employed,1,0,0,0,0,650,G-Low Risk,24,6,1,1046041,1073562,229333,3,0,11,72,0,0
+104,47349,67940,70.65,86,68,6,35,Self employed,0,1,0,0,0,471,K-High Risk,8,5,1,1424423,2051607,21305,0,0,32,63,0,0
+105,52703,67492,79.71,86,18,4,37,Salaried,1,0,0,0,0,845,A-Very Low Risk,3,0,0,0,0,93207,0,0,12,20,0,0
+106,64882,78000,84.62,86,2,4,50,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,1
+107,62000,71574,88.02,86,146,14,49,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+108,48449,81721,60.82,48,67,6,35,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+109,43694,71115,62.29,51,152,3,24,Self employed,1,0,0,0,0,738,C-Very Low Risk,1,1,0,7983,12135,0,1,0,4,4,0,0
+110,69023,89705,78.81,86,67,6,28,Salaried,0,0,1,0,0,585,I-Medium Risk,1,0,1,0,0,0,0,0,0,0,0,0
+111,50278,58493,88.9,86,258,16,35,Salaried,1,0,0,0,0,825,A-Very Low Risk,2,1,0,39551,40000,3770,1,0,12,22,2,1
+112,55414,75204,76.0,45,36,13,35,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+113,61213,72000,86.11,86,2,4,28,Salaried,1,0,0,0,0,768,B-Very Low Risk,5,2,0,9600,16000,0,2,0,11,24,0,1
+114,66002,77734,88.76,45,36,13,31,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+115,48578,59624,84.7,45,85,4,19,Not provided,1,0,0,0,0,300,M-Very High Risk,13,4,4,25765,47700,12006,0,2,14,37,2,0
+116,53203,62918,86.94,45,67,6,30,Salaried,1,0,1,0,0,690,E-Low Risk,1,1,0,7388,71500,0,0,0,24,24,0,1
+117,57727,74834,81.51,86,1,3,35,Self employed,0,0,1,0,0,300,M-Very High Risk,1,0,0,0,0,0,0,0,0,0,0,0
+118,67882,100507,68.65,48,16,14,43,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+119,49149,69773,71.66,45,73,11,33,Self employed,1,0,0,0,0,743,C-Very Low Risk,3,2,0,1499,276499,1786,1,0,27,71,0,0
+120,74451,99677,77.25,48,136,8,19,Not provided,1,0,0,0,0,704,E-Low Risk,38,7,0,235286,256500,27440,3,0,9,25,3,0
+121,40890,75904,57.97,86,104,10,39,Salaried,1,0,0,0,0,572,I-Medium Risk,2,2,1,626207,950000,22452,0,0,25,26,0,0
+122,34809,70300,54.05,86,103,7,41,Salaried,1,0,0,0,0,682,E-Low Risk,27,9,0,471750,601391,0,5,0,13,58,0,0
+123,39439,57161,69.98,86,207,6,56,Self employed,1,0,0,0,0,637,G-Low Risk,2,1,0,59793,280780,66370,0,0,49,67,0,0
+124,60293,69372,89.2,86,62,11,44,Salaried,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,4109,0,0,6,6,0,1
+125,61447,75423,83.53,51,77,4,52,Salaried,1,0,0,0,0,336,L-Very High Risk,1,1,0,775,0,0,0,0,63,63,0,0
+126,59013,67695,88.63,86,48,5,33,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+127,62663,76000,84.87,86,146,14,41,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+128,47549,64500,75.5,51,14,15,22,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+129,56913,69850,82.89,45,73,11,35,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+130,51503,67053,77.85,86,34,6,50,Salaried,1,0,0,0,0,712,D-Very Low Risk,2,1,0,141478,380000,15788,0,0,31,32,0,0
+131,56013,65296,88.83,86,63,10,43,Self employed,1,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+132,66882,114802,60.1,51,11,3,26,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+133,82033,99723,84.23,86,100,15,32,Salaried,1,0,0,0,0,648,G-Low Risk,1,1,0,180163,250000,5876,0,1,22,22,0,0
+134,58113,72638,84.67,86,5,9,30,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+135,44549,73000,63.29,45,152,3,24,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+136,66169,115739,57.89,51,11,3,24,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+137,50603,94367,54.89,86,2,4,21,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+138,56259,79366,73.08,45,1,3,43,Self employed,1,0,0,0,0,604,H-Medium Risk,22,7,0,1022226,1150167,19364,2,1,8,40,1,0
+139,70017,79742,89.91,120,13,8,25,Self employed,1,0,0,0,0,562,J-High Risk,1,1,0,154801,171000,2493,0,0,70,70,1,1
+140,45149,69841,67.3,86,68,6,28,Self employed,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,1765,0,0,6,6,0,0
+141,43210,72965,60.3,45,16,14,26,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+142,71278,83692,88.96,86,8,3,34,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+143,55113,64381,87.14,45,61,6,24,Salaried,0,0,1,0,0,615,H-Medium Risk,1,0,0,0,0,0,0,0,25,25,0,0
+144,50743,69147,76.65,86,202,18,35,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+145,74251,99557,76.34,86,159,7,33,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+146,50478,67660,76.85,45,67,6,30,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+147,55259,68195,82.12,45,136,8,46,Self employed,1,0,0,0,0,300,M-Very High Risk,13,5,1,151888,260970,49494,2,0,13,44,0,0
+148,37541,64784,61.74,86,160,1,38,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+149,50303,66800,76.35,45,16,17,41,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+150,48349,62037,78.99,45,67,6,30,Self employed,1,0,0,0,0,825,A-Very Low Risk,8,2,0,83781,115000,21730,1,0,11,20,1,1
+151,56300,68455,84.14,86,18,4,45,Self employed,1,0,0,0,0,603,H-Medium Risk,1,0,0,0,0,0,0,0,9,9,0,1
+152,70523,90187,79.83,86,67,6,55,Self employed,1,0,0,0,0,567,J-High Risk,6,1,0,612070,646417,4352,1,0,14,33,0,1
+153,51378,63032,82.97,45,147,2,34,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+154,63697,72500,89.66,51,15,11,39,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+155,50578,78000,66.67,86,248,4,40,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+156,68169,94824,73.82,48,5,9,30,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+157,47450,62486,82.42,86,3,1,26,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+158,96990,130147,76.07,48,10,3,33,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+159,64042,81208,82.5,86,1,3,22,Self employed,1,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+160,64669,74433,88.67,86,138,9,51,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+161,50303,75738,67.34,45,42,3,44,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+162,44125,60660,76.16,45,19,4,35,Self employed,1,0,0,0,0,705,E-Low Risk,2,1,0,75434,0,1827,0,1,17,28,0,0
+163,82186,113367,74.1,49,48,5,30,Salaried,0,0,1,0,0,619,H-Medium Risk,2,1,1,34485,45000,1485,0,1,17,24,0,1
+164,90455,116000,79.74,48,147,2,27,Salaried,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+165,57157,64998,90.0,86,67,6,36,Self employed,1,0,0,0,0,583,I-Medium Risk,14,2,1,488204,485000,0,1,1,8,14,0,0
+166,50078,72166,72.06,45,251,13,42,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+167,73451,87000,86.44,86,248,4,24,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+168,31294,70090,48.51,86,103,7,44,Salaried,1,0,0,0,0,0,No Bureau History Available,1,1,0,1430177,1500000,12923,0,0,7,7,0,0
+169,83280,102200,83.17,51,20,5,47,Salaried,1,0,0,0,0,706,D-Very Low Risk,1,1,0,0,22500,0,0,1,11,11,0,0
+170,59059,70956,84.56,86,136,8,37,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+171,67417,78100,89.76,45,152,3,50,Self employed,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+172,28300,51000,58.82,51,63,10,49,Self employed,1,0,0,0,0,657,F-Low Risk,1,1,0,420903,450000,9057,0,0,7,7,0,0
+173,44394,73476,61.24,86,16,14,49,Salaried,1,0,0,0,0,709,D-Very Low Risk,34,2,0,13793,19133,1017280,2,0,10,38,0,0
+174,73717,106010,70.65,48,16,14,28,Salaried,1,0,0,0,0,448,K-High Risk,2,1,1,233765,220000,0,0,0,8,12,0,0
+175,63947,77180,84.22,86,251,13,46,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+176,30641,100700,32.08,51,120,12,26,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+177,50743,75154,69.19,86,2,4,20,Not provided,1,0,0,0,0,635,G-Low Risk,1,1,0,207600,195000,0,0,0,7,7,0,1
+178,77251,125045,63.58,51,152,3,45,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+179,60213,101028,61.37,51,159,7,27,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+180,54459,76000,73.95,49,202,18,56,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+181,58493,91193,66.89,45,7,3,30,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+182,56709,72200,79.92,51,15,11,31,Salaried,1,0,0,0,0,726,D-Very Low Risk,3,1,0,9616,10990,0,1,0,3,4,1,0
+183,71517,109222,68.67,86,29,3,23,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+184,53303,71541,75.48,45,48,5,50,Salaried,1,0,0,0,0,825,A-Very Low Risk,2,0,0,0,0,0,0,0,14,16,0,0
+185,67342,80000,85.7,51,135,4,28,Salaried,1,0,0,0,0,667,F-Low Risk,6,4,0,148324,173800,5175,2,0,12,31,0,0
+186,68917,80000,88.25,86,248,4,35,Salaried,1,0,0,0,0,681,E-Low Risk,1,1,0,49490,49490,0,0,0,9,9,0,0
+187,48349,65824,74.44,45,207,6,37,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+188,59259,97298,61.67,48,16,14,22,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+189,56013,71800,79.39,45,16,14,29,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+190,64169,75060,87.93,86,19,4,36,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+191,49099,76630,65.25,45,97,6,32,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+192,43320,65570,72.14,45,8,3,57,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+193,58759,66394,89.62,45,14,15,28,Salaried,1,1,0,0,0,646,G-Low Risk,2,2,0,582556,649500,13333,1,0,4,9,0,0
+194,39439,77646,51.52,45,11,3,37,Self employed,1,0,0,0,0,379,K-High Risk,1,1,1,24222,24000,947,1,1,3,3,0,1
+195,48349,61260,79.99,51,3,1,37,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+196,52078,88738,59.73,120,251,13,35,Self employed,0,0,0,1,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+197,36202,52464,74.53,48,78,4,37,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+198,45500,78000,60.26,86,8,3,28,Salaried,1,0,0,0,0,749,C-Very Low Risk,5,2,0,67806,179024,0,0,0,17,36,0,0
+199,59447,96578,63.68,49,65,13,27,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+200,72617,103251,71.48,86,48,5,25,Self employed,1,0,0,0,0,810,A-Very Low Risk,1,1,0,10708,50787,0,0,0,6,6,0,0
+201,51303,66320,79.92,86,34,6,23,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+202,61713,71055,88.66,86,5,9,26,Self employed,0,0,0,1,0,825,A-Very Low Risk,3,0,0,0,0,1334,0,0,11,14,0,0
+203,81586,98421,84.84,86,142,1,33,Salaried,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,4,3,0,1027171,1032524,2055,4,1,1,2,4,1
+204,49349,70890,70.53,86,34,6,29,Salaried,1,0,0,0,0,710,D-Very Low Risk,2,1,0,12990,12990,3692,1,0,3,7,1,1
+205,46349,70668,67.92,86,79,18,43,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+206,68169,92265,74.78,48,5,9,39,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+207,60691,79186,83.35,86,7,3,29,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+208,34179,60128,59.44,45,85,4,24,Salaried,1,0,0,0,0,611,H-Medium Risk,2,1,1,361,361,1925,0,0,33,34,2,0
+209,13940,66660,22.5,45,67,6,33,Salaried,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,1686,0,0,7,7,0,0
+210,31701,102474,32.2,51,70,4,25,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+211,55259,104740,53.47,49,42,3,36,Self employed,1,0,0,0,0,810,A-Very Low Risk,1,1,0,0,80000,0,0,0,6,6,0,0
+212,58013,72743,81.11,45,1,3,26,Self employed,1,0,0,0,0,17,Not Scored: Not Enough Info available on the customer,1,1,0,9891,10990,0,1,0,2,2,0,0
+213,29584,66887,46.2,86,62,11,46,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+214,40394,67664,62.07,86,34,6,30,Salaried,1,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+215,79086,110000,74.0,51,29,3,32,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+216,45845,73324,64.1,49,29,3,35,Self employed,1,0,0,0,0,300,M-Very High Risk,2,2,1,331870,378000,0,0,0,41,52,0,0
+217,65665,78819,85.0,86,82,19,46,Self employed,1,0,0,0,0,737,C-Very Low Risk,1,1,0,44934,80000,0,0,0,17,17,0,0
+218,48049,65167,75.19,45,20,5,54,Salaried,1,0,0,0,0,749,C-Very Low Risk,3,2,0,164396,266800,5694,1,0,14,25,0,0
+219,54259,71918,77.87,86,16,14,19,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+220,79186,116432,70.0,51,11,3,53,Self employed,1,0,0,0,0,663,F-Low Risk,3,1,0,68940,69000,0,0,0,32,41,1,1
+221,55759,75651,74.69,86,16,14,26,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+222,67917,104600,67.02,51,152,3,32,Self employed,0,0,1,0,0,305,L-Very High Risk,1,0,1,0,0,1919,0,0,18,18,0,1
+223,94490,140022,69.27,49,29,3,26,Self employed,0,0,1,0,0,620,H-Medium Risk,1,1,0,1100000,896000,0,1,0,3,3,0,0
+224,52579,66700,83.96,45,3,1,24,Salaried,1,0,0,0,0,753,C-Very Low Risk,3,2,0,19367,54025,1067,1,0,5,8,0,0
+225,50683,65565,82.36,45,160,15,29,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+226,43072,64722,69.53,45,120,12,34,Self employed,1,0,0,0,0,568,J-High Risk,21,5,1,116780,202201,44551,1,0,12,21,0,1
+227,54913,69998,79.86,86,34,6,36,Self employed,0,0,1,0,0,419,K-High Risk,1,1,1,41771,146000,5050,0,1,33,33,0,0
+228,55354,66283,85.0,86,34,6,62,Self employed,1,0,0,0,0,703,E-Low Risk,18,4,0,460327,665271,274609,0,0,29,121,0,0
+229,57259,75740,76.58,86,146,17,40,Self employed,1,0,0,0,0,576,I-Medium Risk,6,3,0,2555261,2530000,21450,3,1,17,64,0,0
+230,66082,76100,88.7,45,8,3,36,Self employed,1,0,0,0,0,710,D-Very Low Risk,3,3,1,38890,60000,1720,1,1,6,11,0,0
+231,52303,69405,76.36,86,101,15,29,Self employed,1,0,0,0,0,627,H-Medium Risk,1,0,0,0,0,0,0,0,45,45,0,0
+232,58003,70172,85.49,45,1,3,48,Salaried,0,0,0,0,1,300,M-Very High Risk,16,4,6,14643,96280,8525,2,0,32,128,1,0
+233,51078,71737,73.88,49,138,9,31,Salaried,0,0,0,1,0,300,M-Very High Risk,5,2,2,118434,118434,4317,0,0,34,76,1,0
+234,57117,68369,89.22,86,20,5,53,Salaried,1,0,0,0,0,562,J-High Risk,3,2,1,790963,925000,12636,0,0,42,60,0,1
+235,41753,65306,68.45,45,78,4,29,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+236,60100,77680,78.53,51,146,14,38,Not provided,1,0,0,0,0,0,No Bureau History Available,1,0,0,0,0,0,0,0,33,33,0,0
+237,50803,70313,73.96,86,74,4,22,Salaried,0,0,0,1,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+238,47349,64312,76.19,45,257,6,55,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+239,47349,103100,46.56,51,1,3,27,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+240,57413,70448,83.75,86,67,6,43,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+241,51303,72900,71.33,120,34,6,35,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+242,39074,55427,73.97,48,103,7,24,Self employed,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+243,71111,85700,84.7,86,2,4,30,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+244,66169,74708,89.68,86,165,5,55,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+245,52741,73925,74.81,45,36,13,23,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+246,45149,62089,74.89,45,160,1,30,Self employed,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+247,47349,68111,70.47,86,14,15,27,Salaried,1,0,0,0,0,738,C-Very Low Risk,1,1,0,12500,30000,0,1,0,4,4,0,0
+248,43439,72429,64.89,86,5,9,35,Salaried,1,0,0,0,0,300,M-Very High Risk,4,1,1,8218,24105,4308,0,0,16,30,0,0
+249,52003,75844,69.88,120,67,6,38,Self employed,1,0,0,0,0,836,A-Very Low Risk,1,0,0,0,0,0,0,0,25,25,0,0
+250,55759,85110,66.97,120,20,5,26,Salaried,1,0,0,0,0,659,F-Low Risk,9,8,0,102082,179337,0,6,0,5,12,0,0
+251,61947,81048,77.73,86,2,4,27,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+252,75751,104633,74.55,48,255,3,26,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+253,59259,69501,86.33,86,16,17,38,Salaried,1,0,0,0,0,708,D-Very Low Risk,4,4,0,38786,97691,9162,3,0,4,12,0,0
+254,76379,173490,46.11,67,103,7,39,Salaried,1,0,0,0,0,810,A-Very Low Risk,3,2,0,154459,285087,0,0,0,43,80,0,0
+255,98290,133464,74.85,67,72,11,52,Self employed,1,0,0,0,0,680,F-Low Risk,11,4,0,156800,428122,0,3,0,12,70,0,0
+256,52154,70468,75.0,49,65,13,51,Self employed,1,0,0,0,0,615,H-Medium Risk,1,1,0,165577,220000,0,0,0,55,55,0,0
+257,44394,74200,60.65,86,48,5,30,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+258,33261,72206,47.09,86,18,4,26,Salaried,1,0,0,0,0,763,B-Very Low Risk,2,2,0,21307,41520,2240,1,0,6,9,0,0
+259,70817,103284,69.71,51,1,3,25,Self employed,0,0,1,0,0,657,F-Low Risk,1,1,0,388653,454567,13010,0,0,9,9,0,0
+260,51078,68789,77.05,86,3,1,26,Self employed,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+261,67237,77043,89.56,86,249,4,46,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+262,55513,72986,78.78,45,36,13,22,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+263,56259,70402,80.96,86,136,8,39,Salaried,1,0,0,0,0,300,M-Very High Risk,12,9,1,3253759,3389990,17700,3,0,11,44,0,0
+264,64282,76550,86.09,86,13,8,41,Salaried,1,0,0,0,0,738,C-Very Low Risk,15,5,0,83088,113599,19973,3,1,9,20,5,0
+265,45449,66288,69.55,86,34,6,29,Self employed,0,0,1,0,0,825,A-Very Low Risk,2,0,0,0,0,3264,0,0,6,6,0,0
+266,63947,97716,66.52,49,36,13,24,Salaried,0,1,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+267,59447,76937,79.29,45,48,5,23,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+268,90555,140250,66.31,120,11,3,26,Self employed,1,0,0,0,0,658,F-Low Risk,2,1,1,161700,530000,0,0,1,31,47,1,1
+269,69123,84543,83.98,86,10,3,23,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+270,55759,79787,71.44,86,2,4,40,Salaried,1,0,0,0,0,699,E-Low Risk,2,2,0,920058,1368150,17073,0,0,30,50,0,0
+271,52235,73986,72.31,51,18,4,50,Self employed,1,0,0,0,0,14,Not Scored: Only a Guarantor,3,1,0,100000,100000,0,1,0,8,12,0,0
+272,50303,71482,71.35,86,19,4,30,Self employed,1,0,0,0,0,738,C-Very Low Risk,1,1,0,4317,12961,2161,1,0,4,4,1,0
+273,51303,90934,57.18,86,2,4,41,Self employed,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+274,58259,76500,77.12,120,2,4,25,Self employed,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+275,74751,104072,73.99,48,10,3,46,Self employed,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,25000,25000,0,1,0,0,0,0,1
+276,56013,78966,72.18,86,29,3,27,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+277,42972,72053,62.45,45,63,10,38,Salaried,1,0,0,0,0,738,C-Very Low Risk,3,2,0,320178,511990,0,1,0,15,27,0,0
+278,64909,79369,84.42,86,5,9,35,Salaried,1,0,0,0,0,300,M-Very High Risk,6,4,1,363973,425980,3854,1,0,13,26,0,0
+279,51578,66576,79.61,45,14,15,24,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+280,66169,95750,71.02,86,146,14,34,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+281,49078,75165,67.85,49,1,3,27,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+282,34275,45450,79.21,51,20,5,41,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+283,43929,84258,54.59,86,120,12,37,Salaried,1,0,0,0,0,819,A-Very Low Risk,1,0,0,0,0,7385,0,0,32,32,0,0
+284,58513,67400,89.02,45,250,6,23,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+285,51303,63273,83.76,45,3,1,45,Salaried,1,0,0,0,0,758,C-Very Low Risk,7,1,0,14536,19990,0,1,0,11,21,0,0
+286,57317,69724,87.49,86,5,9,31,Self employed,1,0,0,0,0,394,K-High Risk,6,5,1,183079,235469,13707,2,1,8,12,2,1
+287,58947,106849,57.09,48,255,3,26,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+288,76079,105016,74.27,86,16,14,51,Self employed,1,0,0,0,0,579,I-Medium Risk,6,1,0,-10,0,15420,0,0,30,37,0,0
+289,56259,65439,87.1,45,61,6,44,Self employed,1,0,0,0,0,592,I-Medium Risk,8,2,1,1489580,1635998,8609,0,0,50,146,1,0
+290,56259,74386,77.97,45,1,3,28,Self employed,0,0,1,0,0,738,C-Very Low Risk,4,1,0,5596,13990,0,1,0,14,28,0,0
+291,59947,81662,75.92,86,7,3,31,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+292,61713,75430,82.86,86,136,8,35,Salaried,0,0,0,1,0,485,K-High Risk,17,5,1,172443,228789,5230,0,1,9,12,1,1
+293,68782,87947,79.59,51,135,4,23,Salaried,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+294,61957,78575,82.09,45,61,6,29,Salaried,1,0,0,0,0,738,C-Very Low Risk,1,1,0,7610,20000,1537,0,0,12,12,0,0
+295,46449,67563,70.6,86,67,6,20,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+296,49349,69491,71.95,86,67,6,32,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+297,65069,78758,83.67,86,36,13,47,Self employed,0,0,1,0,0,836,A-Very Low Risk,4,0,0,0,0,76821,0,0,19,24,0,0
+298,57727,117656,51.85,45,7,3,54,Salaried,1,0,0,0,0,713,D-Very Low Risk,12,6,0,246213,581849,4346,1,0,26,59,0,0
+299,54853,70416,82.37,86,152,3,29,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+300,49578,64928,78.55,45,79,18,21,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+301,55259,80835,69.28,49,9,3,24,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+302,60413,73944,83.85,86,16,14,40,Salaried,0,0,0,1,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+303,54259,72625,77.11,86,11,3,22,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+304,69857,81130,89.98,45,1,3,23,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+305,53303,103631,53.07,49,29,3,30,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+306,66099,84800,80.19,86,13,8,43,Salaried,0,0,1,0,0,825,A-Very Low Risk,17,0,0,0,0,15566,0,0,9,18,4,0
+307,66969,80817,85.13,86,13,8,33,Self employed,1,0,0,0,0,726,D-Very Low Risk,23,2,0,244745,283700,1452489,1,0,13,37,0,0
+308,66169,80715,84.25,86,77,4,57,Salaried,1,0,0,0,0,709,D-Very Low Risk,3,3,0,241094,296000,0,2,0,14,41,0,0
+309,56259,67281,84.72,86,15,11,52,Self employed,1,0,0,0,0,763,B-Very Low Risk,4,1,0,4398,21990,0,1,0,10,14,0,0
+310,38994,64958,62.5,86,77,4,33,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+311,65882,90836,74.86,48,1,3,32,Salaried,1,0,1,0,0,424,K-High Risk,7,6,3,989654,1052004,9692,0,1,25,42,0,0
+312,59452,69168,90.0,86,68,6,27,Self employed,1,0,0,0,0,667,F-Low Risk,2,2,0,13231,17288,2143,1,0,5,9,1,0
+313,72317,101000,74.26,49,1,3,26,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+314,53008,71965,77.19,86,19,4,34,Salaried,1,0,0,0,0,17,Not Scored: Not Enough Info available on the customer,1,1,0,133980,200000,3859,0,0,37,37,0,0
+315,52303,70641,76.44,86,17,17,44,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+316,40054,52800,79.55,45,3,15,48,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+317,39074,75778,54.11,45,36,13,52,Salaried,0,0,1,0,0,706,D-Very Low Risk,4,2,0,408714,500000,25245,0,0,37,63,0,0
+318,57259,72500,80.0,49,147,2,54,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+319,29884,85789,36.14,86,67,6,33,Salaried,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,1149,0,0,6,6,0,0
+320,61213,79489,78.0,45,152,3,23,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+321,46349,71395,67.23,45,159,7,38,Salaried,1,0,0,0,0,723,D-Very Low Risk,3,1,0,309275,375000,9842,0,0,25,39,0,0
+322,52278,66200,81.12,45,85,4,28,Salaried,1,0,0,0,0,749,C-Very Low Risk,4,2,0,169167,384900,9350,1,0,14,34,0,0
+323,48349,76793,63.81,86,207,6,23,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+324,57013,70716,82.02,86,152,3,33,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+325,52803,63732,89.44,86,162,4,34,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+326,74751,97452,78.5,86,20,5,22,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+327,51303,82065,64.58,86,10,3,31,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+328,49273,74223,69.39,51,160,1,28,Self employed,1,1,0,0,0,738,C-Very Low Risk,2,1,0,13498,20250,3349,1,0,2,5,3,0
+329,51803,67038,78.31,86,34,6,53,Salaried,1,0,0,0,0,714,D-Very Low Risk,3,3,0,546127,560000,6424,0,0,29,48,0,0
+330,66382,91153,74.6,48,136,8,24,Salaried,1,0,0,0,0,762,B-Very Low Risk,1,1,0,3340,33530,1750,0,0,22,22,0,1
+331,63513,72385,88.83,86,147,2,39,Salaried,1,0,0,0,0,561,J-High Risk,12,3,0,813181,1200000,18890,1,0,29,85,3,0
+332,64400,79200,83.59,86,147,2,41,Self employed,0,0,1,0,0,300,M-Very High Risk,27,8,2,92817,158500,34109,3,2,10,25,1,0
+333,71317,99587,73.8,51,36,13,28,Self employed,0,1,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+334,60713,71759,86.4,86,19,4,54,Self employed,1,0,0,0,0,704,E-Low Risk,14,4,0,175304,314990,0,0,0,17,45,0,0
+335,41879,57943,74.21,48,18,4,49,Self employed,1,0,0,0,0,17,Not Scored: Not Enough Info available on the customer,2,1,0,0,50000,0,1,0,11,20,0,0
+336,49403,60241,84.83,45,19,4,23,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+337,51303,66053,78.72,86,48,5,50,Self employed,1,0,0,0,0,544,J-High Risk,12,2,0,67165,61000,61775,1,0,6,24,0,0
+338,49145,67590,73.98,120,36,13,58,Self employed,0,0,1,0,0,738,C-Very Low Risk,2,1,0,11280,25000,2820,0,0,11,12,0,1
+339,63347,80057,81.19,86,67,6,19,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+340,54313,66661,82.96,86,62,11,47,Salaried,1,0,0,0,0,718,D-Very Low Risk,3,2,0,291594,654165,0,0,0,49,68,0,0
+341,70317,105867,68.01,49,48,5,49,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+342,51678,64130,82.96,45,67,6,30,Salaried,1,0,0,0,0,836,A-Very Low Risk,1,0,0,0,0,0,0,0,25,25,0,0
+343,46615,69615,69.67,45,8,3,33,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+344,62147,97318,66.79,48,36,13,26,Salaried,0,0,1,0,0,774,B-Very Low Risk,1,1,0,0,38321,0,0,0,35,35,0,1
+345,63839,79200,83.96,49,1,3,26,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+346,51803,80174,66.11,86,34,6,28,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+347,58513,75084,79.91,86,74,4,29,Self employed,1,0,0,0,0,14,Not Scored: Only a Guarantor,1,1,0,43557,75000,2582,0,0,16,16,0,0
+348,44349,64482,71.34,45,20,5,37,Self employed,1,0,0,0,0,738,C-Very Low Risk,2,1,0,17497,20000,1180,1,0,13,24,1,0
+349,50303,76221,68.22,86,152,3,29,Salaried,1,0,0,0,0,675,F-Low Risk,1,1,0,-389,58288,0,0,0,62,62,0,0
+350,58959,97072,61.81,48,138,9,21,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+351,59447,71743,85.58,86,121,9,40,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+352,55259,76765,72.95,86,162,4,28,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+353,46697,72348,66.83,86,254,13,35,Salaried,1,0,0,0,0,755,C-Very Low Risk,2,2,0,489029,724534,0,1,0,19,38,0,0
+354,49578,63976,79.72,45,14,15,43,Self employed,1,0,0,0,0,657,F-Low Risk,2,2,0,89630,96298,4905,2,0,3,6,1,0
+355,60213,72679,84.62,86,5,9,32,Self employed,1,0,0,0,0,300,M-Very High Risk,20,3,3,341844,540000,11558,0,0,5,33,1,1
+356,54038,70824,77.66,45,10,3,32,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+357,41794,64473,66.54,86,36,13,44,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+358,57763,66373,89.64,45,130,6,31,Salaried,0,0,1,0,0,825,A-Very Low Risk,1,0,0,0,0,0,0,0,17,17,0,0
+359,63013,72507,88.27,51,61,6,36,Salaried,1,0,0,0,0,703,E-Low Risk,13,4,0,641165,825370,2656,0,1,21,100,0,0
+360,51153,67220,77.88,86,19,4,29,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+361,63882,105090,62.8,48,11,3,38,Self employed,1,0,0,0,0,571,I-Medium Risk,4,1,1,28376,50000,0,0,0,16,29,0,0
+362,71123,81100,88.78,51,5,9,46,Self employed,1,0,0,0,0,300,M-Very High Risk,2,1,1,32680,89000,2103,0,0,33,43,0,0
+363,56513,78850,73.56,86,9,3,34,Self employed,1,0,0,0,0,335,L-Very High Risk,1,1,1,50708,50000,0,0,0,48,48,0,0
+364,116727,170511,69.91,67,147,2,54,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+365,32684,51500,66.99,51,14,15,35,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+366,67882,77300,89.26,45,69,8,32,Salaried,1,0,0,0,0,788,B-Very Low Risk,10,2,0,201728,220000,46502,2,0,9,21,2,0
+367,47133,68409,71.63,45,160,1,35,Self employed,1,0,0,0,0,521,J-High Risk,9,7,1,3685946,4945101,138206,2,1,19,58,0,0
+368,56959,86288,67.22,145,2,4,24,Salaried,1,0,0,0,0,738,C-Very Low Risk,2,1,0,32498,65000,1546,1,0,6,10,0,1
+369,62659,77175,86.82,86,138,9,40,Self employed,1,0,0,0,0,300,M-Very High Risk,10,3,2,41801,99651,11181,0,0,21,64,0,0
+370,65882,106500,62.91,51,29,3,30,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+371,55813,102370,55.97,49,251,13,38,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+372,46749,67038,70.71,86,34,6,48,Self employed,1,0,0,0,0,642,G-Low Risk,12,3,0,111441,358034,1625,0,1,52,141,0,0
+373,64567,77629,85.0,86,5,9,36,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+374,62213,71500,89.51,86,61,6,21,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+375,58759,72640,81.91,45,202,18,24,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+376,56759,81897,70.82,86,217,7,36,Self employed,1,0,0,0,0,836,A-Very Low Risk,1,0,0,0,0,0,0,0,24,24,0,0
+377,40054,69297,60.61,45,104,10,32,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+378,67723,81853,86.74,86,138,9,29,Salaried,1,0,0,0,0,802,B-Very Low Risk,6,1,0,2861,10999,0,0,0,5,14,0,0
+379,45949,70795,66.39,86,138,9,40,Salaried,0,0,0,1,0,300,M-Very High Risk,8,4,3,791892,993710,22363,0,1,43,135,0,1
+380,68169,87021,79.29,86,19,4,35,Salaried,1,0,0,0,0,417,K-High Risk,1,0,1,0,0,1074,0,0,0,0,0,0
+381,50303,74000,70.27,51,147,2,28,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+382,60187,74412,84.66,51,74,4,39,Self employed,0,0,1,0,0,728,D-Very Low Risk,23,6,0,1117451,1245900,10735,2,0,9,44,0,0
+383,56659,65250,88.89,45,67,6,23,Salaried,1,0,0,0,0,738,C-Very Low Risk,2,1,0,8387,10061,3816,1,0,3,6,1,0
+384,53703,75076,73.26,86,20,5,38,Self employed,0,0,1,0,0,18,Not Scored: No Updates available in last 36 months,1,0,0,0,0,900,0,0,7,7,0,0
+385,66669,99213,68.04,49,36,13,37,Self employed,0,1,1,0,0,300,M-Very High Risk,5,3,3,2260458,4369000,26666,0,0,53,110,0,0
+386,74079,120140,63.26,48,251,13,39,Self employed,0,1,0,1,0,670,F-Low Risk,2,1,0,16538,170000,2833,0,0,30,31,0,0
+387,57259,72000,80.56,86,9,3,31,Self employed,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,24880,26845,2144,1,0,1,1,0,0
+388,44799,63450,71.63,48,85,4,51,Self employed,1,0,0,0,0,763,B-Very Low Risk,1,1,0,0,14500,0,0,0,21,21,0,0
+389,90255,127239,73.09,48,1,3,23,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+390,66169,84080,79.69,45,146,14,25,Not provided,1,0,0,0,0,300,M-Very High Risk,14,2,1,0,40839,1264,0,0,11,44,0,0
+391,63213,74263,87.53,86,19,4,36,Self employed,1,0,0,0,0,649,G-Low Risk,12,6,0,1430778,1908363,15294,3,0,16,51,2,0
+392,56910,69808,85.0,86,162,4,31,Self employed,1,0,0,0,0,719,D-Very Low Risk,22,1,0,40369,175000,0,0,0,4,30,0,0
+393,59947,85300,71.51,86,11,3,27,Self employed,1,0,0,0,0,16,Not Scored: No Activity seen on the customer (Inactive),1,0,0,0,0,0,0,0,27,27,0,0
+394,44409,68183,70.4,45,138,9,38,Self employed,1,0,0,0,0,633,G-Low Risk,9,2,0,667749,713000,3500,0,0,9,26,0,0
+395,62383,78225,84.63,45,3,1,24,Salaried,1,1,0,0,0,569,J-High Risk,1,1,0,246720,212250,0,0,0,50,50,0,0
+396,44049,69700,65.57,86,152,3,25,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+397,56413,99214,57.85,49,29,3,24,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+398,37649,71784,55.03,86,120,12,58,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+399,62359,83386,77.95,45,9,3,30,Self employed,0,0,1,0,0,496,K-High Risk,1,1,1,69557,88000,0,0,0,30,30,0,1
+400,34184,56653,61.78,45,18,4,50,Self employed,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,2,2,0,11666,14914,0,2,0,0,0,0,0
+401,50078,64579,78.97,120,152,3,30,Self employed,0,0,1,0,0,333,L-Very High Risk,1,0,1,0,0,0,0,0,0,0,0,0
+402,58259,70850,83.27,86,146,14,22,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+403,47349,66336,73.87,51,3,1,29,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+404,37889,52279,73.55,51,146,14,40,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+405,37541,72915,54.86,45,160,15,25,Salaried,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+406,59313,81583,74.89,49,65,13,30,Self employed,0,1,1,0,0,738,C-Very Low Risk,4,4,0,89254,94069,5416,4,0,1,4,1,0
+407,56663,72773,79.91,48,10,3,30,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+408,61689,74509,88.58,86,5,9,55,Self employed,1,0,0,0,0,845,A-Very Low Risk,2,0,0,0,0,0,0,0,43,45,0,0
+409,59687,77946,80.83,45,10,3,20,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+410,52078,73103,73.87,49,42,3,33,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+411,61947,71100,88.61,45,153,11,39,Salaried,1,0,0,0,0,573,I-Medium Risk,3,1,0,6625,25000,634,0,0,18,36,0,0
+412,60713,75280,82.36,86,5,9,37,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+413,55843,68974,84.81,49,48,5,32,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,1
+414,64682,79717,83.8,51,1,3,19,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+415,57259,72632,79.85,86,34,6,40,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+416,59913,78358,77.85,86,64,9,28,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+417,65882,80817,84.14,86,152,3,28,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+418,52628,63974,84.88,45,20,5,23,Salaried,1,0,0,0,0,723,D-Very Low Risk,4,3,0,165960,168995,7098,3,0,3,6,1,0
+419,54303,73830,74.5,86,34,6,22,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+420,44394,59726,75.34,51,136,8,58,Salaried,1,0,0,0,0,451,K-High Risk,30,7,0,1032216,1098500,941629,5,1,10,46,0,0
+421,67882,103323,67.75,51,1,3,19,Not provided,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+422,42394,76513,57.51,45,11,3,31,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+423,59513,68142,88.49,45,48,5,34,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+424,80382,126882,66.2,51,7,3,21,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+425,39894,64577,63.49,86,79,18,31,Self employed,1,0,0,0,0,774,B-Very Low Risk,1,1,0,30360,130000,0,0,0,29,29,0,0
+426,78079,105532,74.86,51,48,5,28,Salaried,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+427,52278,59495,89.92,86,64,9,36,Self employed,1,0,0,0,0,541,J-High Risk,11,5,1,110212,118581,14002,5,1,11,25,7,1
+428,32484,84573,39.02,45,152,3,29,Self employed,1,0,0,0,0,17,Not Scored: Not Enough Info available on the customer,1,1,0,0,3225,0,1,0,2,2,1,1
+429,42394,69944,62.91,49,20,5,37,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+430,46069,74500,65.1,45,8,3,33,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+431,45349,60622,75.88,45,14,15,27,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+432,71817,103463,71.52,51,159,7,22,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+433,74123,104981,71.44,48,146,14,25,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+434,44549,61000,74.92,51,153,11,33,Self employed,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,7471,7471,1303,1,0,0,0,1,0
+435,61463,73027,86.27,45,160,1,43,Self employed,1,0,0,0,0,738,C-Very Low Risk,4,2,0,12203,26771,5771,2,0,7,15,2,0
+436,65369,88842,74.85,51,138,9,38,Self employed,1,0,0,0,0,453,K-High Risk,5,4,3,299000,299000,0,1,3,18,53,0,0
+437,80686,98980,82.85,86,19,4,25,Salaried,1,0,0,0,0,490,K-High Risk,7,7,1,701746,856238,0,1,1,14,34,0,0
+438,50003,76500,66.27,86,17,17,34,Not provided,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+439,54703,66459,85.0,86,67,6,41,Salaried,1,0,0,0,0,616,H-Medium Risk,3,2,1,17166,41328,0,0,0,60,164,0,0
+440,53449,73414,77.64,86,5,9,34,Self employed,1,0,0,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,16000,20000,0,1,0,2,2,4,1
+441,69373,75438,94.12,86,5,9,34,Salaried,1,0,0,0,0,674,F-Low Risk,34,15,0,1548806,1968012,27897,7,0,12,68,0,0
+442,62189,99197,66.53,51,3,1,52,Self employed,0,1,1,0,0,708,D-Very Low Risk,11,7,0,113105,265819,24991,1,0,11,27,1,0
+443,46649,61768,76.58,45,147,2,24,Self employed,1,0,0,0,0,738,C-Very Low Risk,2,2,0,31079,50000,3365,1,0,8,11,3,1
+444,55647,64807,89.96,45,249,4,34,Salaried,1,0,0,0,0,300,M-Very High Risk,11,5,2,1726511,1887800,15116,0,2,24,81,0,1
+445,56059,83664,69.32,86,11,3,26,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+446,57013,72000,81.25,45,248,4,34,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+447,52579,72270,77.49,45,103,7,28,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+448,55659,72296,78.43,86,18,4,30,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+449,67382,85848,79.79,86,2,4,23,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+450,54303,72000,76.39,86,2,4,43,Self employed,1,0,0,0,0,681,E-Low Risk,2,1,0,153306,320000,6789,0,0,24,35,0,0
+451,36276,55950,67.92,51,42,3,22,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+452,53403,68148,79.68,45,20,5,53,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+453,40940,78440,54.82,45,8,3,37,Self employed,0,0,0,1,0,595,I-Medium Risk,6,5,0,152073,173598,7000,3,0,8,18,0,0
+454,54078,67432,81.56,45,34,6,44,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+455,51295,60663,87.86,45,61,6,43,Self employed,1,0,0,0,0,300,M-Very High Risk,1,0,1,0,0,0,0,1,0,0,0,0
+456,82633,115245,72.89,51,147,2,56,Self employed,1,0,0,0,0,658,F-Low Risk,1,1,0,0,37147,1915,0,0,29,29,0,0
+457,60213,78457,77.75,86,74,4,21,Salaried,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,1472,0,0,7,7,1,0
+458,71817,87562,83.37,51,2,4,40,Self employed,1,0,0,0,0,448,K-High Risk,6,4,1,549609,1143965,10716,0,1,44,167,0,1
+459,63013,77425,82.4,86,16,14,23,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+460,50804,60944,86.14,86,153,11,26,Salaried,1,0,0,0,0,825,A-Very Low Risk,1,0,0,0,0,1565,0,0,5,5,0,0
+461,70817,81481,88.36,86,2,4,51,Self employed,1,0,0,0,0,682,E-Low Risk,7,2,0,139785,212000,9997,1,1,26,65,0,0
+462,54103,68155,80.4,86,36,13,51,Salaried,0,1,1,0,0,671,F-Low Risk,1,1,0,3,1000,0,0,0,48,48,0,0
+463,49103,71000,70.85,86,135,4,33,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+464,51003,70773,74.46,51,160,1,36,Self employed,1,0,1,0,0,738,C-Very Low Risk,2,2,0,242963,350000,1153,0,0,24,35,0,0
+465,40375,82444,50.98,86,10,3,27,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+466,79873,108700,76.36,49,103,7,27,Self employed,1,0,0,0,0,533,J-High Risk,16,2,0,216185,339567,2599,0,0,8,36,1,0
+467,65700,83201,81.13,45,202,18,49,Salaried,1,0,0,0,0,674,F-Low Risk,3,1,0,0,0,0,0,0,20,45,0,0
+468,55599,79389,73.06,86,10,3,28,Self employed,0,0,1,0,0,653,F-Low Risk,1,1,0,14517,14000,0,0,0,8,8,0,0
+469,36439,59507,62.18,51,3,15,22,Salaried,1,0,0,1,0,15,Not Scored: Sufficient History Not Available,1,1,0,9070,10582,1512,1,0,1,1,1,0
+470,95499,154269,62.62,49,29,3,23,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+471,46395,67198,74.41,86,162,4,34,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+472,46145,65366,73.43,45,79,18,33,Self employed,1,0,0,0,0,779,B-Very Low Risk,2,1,0,2634,52500,0,0,0,33,42,0,0
+473,72817,83046,89.11,86,10,3,49,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+474,63213,73737,88.15,86,255,3,26,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+475,48349,66025,74.21,45,34,6,49,Salaried,1,0,0,0,0,678,F-Low Risk,2,1,0,340613,339000,0,0,0,89,124,2,0
+476,77069,110018,71.91,51,121,9,50,Self employed,1,0,0,0,0,594,I-Medium Risk,4,2,0,147521,252990,3905,1,0,11,36,0,0
+477,65496,74728,89.99,86,2,4,43,Self employed,1,0,0,0,0,666,F-Low Risk,9,3,0,85754,131990,0,1,1,10,14,0,0
+478,53303,69547,77.65,45,63,10,31,Self employed,0,0,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+479,51003,57484,89.94,45,257,6,32,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+480,71123,100565,71.6,48,146,14,49,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+481,60588,73882,84.59,86,5,9,48,Self employed,0,0,0,1,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+482,67882,106695,65.61,51,42,3,32,Self employed,1,0,0,0,0,774,B-Very Low Risk,1,1,0,2284,44486,0,0,0,24,24,0,0
+483,60447,80676,76.23,86,9,3,42,Self employed,1,0,0,0,0,355,K-High Risk,9,2,1,311190,200272,30000,0,0,42,103,0,0
+484,45849,59417,79.1,51,14,15,43,Self employed,1,0,0,0,0,737,C-Very Low Risk,1,1,0,68240,81156,0,1,0,3,3,0,1
+485,64882,79947,82.55,86,251,13,22,Self employed,0,1,1,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+486,36179,46300,82.07,51,5,9,43,Salaried,1,0,0,0,0,346,L-Very High Risk,2,2,1,1986952,2370000,15667,0,1,42,45,0,1
+487,58108,76037,79.57,51,146,14,33,Salaried,1,0,0,0,0,676,F-Low Risk,5,4,0,115772,717704,0,3,0,10,24,0,0
+488,57659,72000,81.11,86,135,4,41,Self employed,1,1,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+489,71123,97908,74.56,51,34,6,49,Salaried,0,0,1,0,0,15,Not Scored: Sufficient History Not Available,1,1,0,8740,14990,1250,1,0,0,0,0,0
+490,89997,126697,74.19,51,7,3,22,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+491,71817,83550,87.37,86,152,3,35,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+492,63947,74300,87.48,51,2,4,41,Salaried,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+493,55259,75480,74.19,86,146,14,25,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,1,0
+494,53303,75440,72.91,45,1,3,24,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,0
+495,69923,90401,79.65,86,16,14,35,Self employed,1,0,0,0,0,0,No Bureau History Available,0,0,0,0,0,0,0,0,0,0,0,1
+496,63713,72963,89.09,86,5,9,35,Self employed,1,0,0,0,0,676,F-Low Risk,25,7,1,145362,215280,7032,5,1,6,28,0,1
+497,58900,68343,87.79,86,15,11,26,Self employed,1,0,0,0,0,738,C-Very Low Risk,3,1,0,133743,142000,8542,1,0,8,13,1,0
+498,75351,107710,74.27,49,7,3,28,Self employed,1,0,0,0,0,752,C-Very Low Risk,5,5,0,983,36371,0,2,0,5,9,1,0
+499,39794,62558,65.54,86,20,5,40,Self employed,1,0,0,0,0,713,D-Very Low Risk,4,1,0,150000,150000,233288,1,0,6,13,1,0
+500,23774,71114,35.15,86,5,9,45,Self employed,1,0,0,0,0,525,J-High Risk,13,4,1,148101,156002,164151,2,2,11,36,0,1
